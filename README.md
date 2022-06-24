@@ -47,8 +47,8 @@ a) inclusão das Personas desenvolvidas pelo grupo<br>
 
 b) inclusão das Histórias de usuário desenvolvidas pelo grupo<br>
 
-<img src="ARUIVOS/HU1.jpg"><br>
-<img src="ARUIVOS/HU2.jpg"><br>
+<img src="arquivos/HU1.jpg"><br>
+<img src="arquivos/HU2.jpg"><br>
 
 ### 5.RASCUNHOS BÁSICOS DA INTERFACE (MOCKUPS)<br>
 Neste ponto a codificação não e necessária, somente as ideias de telas devem ser desenvolvidas. O princípio aqui é pensar na criação da interface para identificar possíveis informações a serem armazenadas e/ou descartadas <br>
