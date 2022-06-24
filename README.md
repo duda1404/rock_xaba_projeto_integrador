@@ -54,19 +54,19 @@ b) inclusão das Histórias de usuário desenvolvidas pelo grupo<br>
 
 ### 5.RASCUNHOS BÁSICOS DA INTERFACE (MOCKUPS)<br>
 
-<img src="arquivos/Protótipo2_page-0001"><br>
+<img src="arquivos/Protótipo2_page-0001.jpg"><br>
 <hr>
-<img src="arquivos/Protótipo2_page-0002"><br>
+<img src="arquivos/Protótipo2_page-0002.jpg"><br>
 <hr>
-<img src="arquivos/Protótipo2_page-0003"><br>
+<img src="arquivos/Protótipo2_page-0003.jpg"><br>
 <hr>
-<img src="arquivos/Protótipo2_page-0004"><br>
+<img src="arquivos/Protótipo2_page-0004.jpg"><br>
 <hr>
-<img src="arquivos/Protótipo2_page-0005"><br>
+<img src="arquivos/Protótipo2_page-0005.jpg"><br>
 <hr>
-<img src="arquivos/Protótipo2_page-0006"><br>
+<img src="arquivos/Protótipo2_page-0006.jpg"><br>
 <hr>
-<img src="arquivos/Protótipo2_page-0007"><br>
+<img src="arquivos/Protótipo2_page-0007.jpg"><br>
 <hr>
 
 #### 5.1 QUAIS PERGUNTAS PODEM SER RESPONDIDAS COM O SISTEMA PROPOSTO?
