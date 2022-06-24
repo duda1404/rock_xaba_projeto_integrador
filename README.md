@@ -31,7 +31,7 @@ usuário, além do estabelecido pela quantia em estoque.
 
 a) inclusão do PMC desenvolvido pelo grupo <br>
 
-<img src="arquivos/PMC (1).pdf"><br>
+https://github.com/duda1404/template_projeto_integrador/blob/b65d0d31c6e74e33e134d5112ba0f8f809b60e0d/arquivos/PMC%20(1).pdf
 
 ### 4.Personas e Histórias de usuário<br>
 <img src="https://neilpatel.com/wp-content/uploads/2019/07/exemplo-carlos.png" Personas src="https://neilpatel.com/wp-content/uploads/2019/07/exemplo-carlos.png" width="500" height="500" /> <br>
