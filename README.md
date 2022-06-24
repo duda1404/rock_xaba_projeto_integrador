@@ -11,10 +11,6 @@ Victor Portes Antunes Valentim: walentim23@gmail.com
 ...
 
 ### 2.MINIMUNDO<br>
-Descrever o mini-mundo! (Não deve ser maior do que 30 linhas, se necessário resumir para justar)
-Entrevista com o usuário e identificação dos requisitos.(quando for o caso de sistemas com cliente real)
-Descrição textual das regras de negócio definidas como um subconjunto do mundo real cujos elementos são propriedades que desejamos incluir, processar, armazenar, gerenciar, atualizar, e que descrevem a proposta/solução a ser desenvolvida.
-<br>
 
 O usuário tem um id para identificá-lo, um email, uma senha e um nome de
 usuário. Caso queira (de forma não obrigatória), ele poderá ser classificado como
