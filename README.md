@@ -35,15 +35,14 @@ a) inclusão do PMC desenvolvido pelo grupo <br>
 ### 4.Personas e Histórias de usuário<br>
 
 a) inclusão dos Persons desenvolvidos pelo grupo<br>
-<img src="arquivos/Personas1.jpg><br>
-<img src="arquivos/Personas2.jpg><br>
-<img src="arquivos/Personas3.jpg><br>
-<img src="arquivos/Personas4.jpg><br>
-<img src="arquivos/Personas5.jpg><br>
-<br>
-<img src="https://miro.medium.com/max/1400/1*r5GVnOvqpMdxnGUYNRXqbg.png" UserStory src="https://miro.medium.com/max/1400/1*r5GVnOvqpMdxnGUYNRXqbg.png" width="500" height="300" /> <br>
-b) inclusão das Histórias de usuário desenvolvidas pelo grupo
-<br>
+
+<img src="arquivos/Personas1.jpg"><br>
+<img src="arquivos/Personas2.jpg"><br>
+<img src="arquivos/Personas3.jpg"><br>
+<img src="arquivos/Personas4.jpg"><br>
+<img src="arquivos/Personas5.jpg"><br>
+
+b) inclusão das Histórias de usuário desenvolvidas pelo grupo<br>
 
 
 ### 5.RASCUNHOS BÁSICOS DA INTERFACE (MOCKUPS)<br>
