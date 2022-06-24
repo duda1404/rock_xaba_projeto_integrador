@@ -37,10 +37,13 @@ a) inclusão do PMC desenvolvido pelo grupo <br>
 a) inclusão das Personas desenvolvidas pelo grupo<br>
 
 <img src="arquivos/Personas1.jpg"><br>
+<hr>
 <img src="arquivos/Personas2.jpg"><br>
 <img src="arquivos/Personas3.jpg" height="200px" width="1000px"><br>
+<hr>
 <img src="arquivos/Personas4.jpg"><br>
 <img src="arquivos/Personas5.jpg" height="200px" width="1000px"><br>
+<hr>
 
 b) inclusão das Histórias de usuário desenvolvidas pelo grupo<br>
 
