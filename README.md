@@ -53,7 +53,7 @@ b) inclusão das Histórias de usuário desenvolvidas pelo grupo<br>
 <hr><br>
 
 ### 5.RASCUNHOS BÁSICOS DA INTERFACE (MOCKUPS)<br>
-
+<br>
 <img src="arquivos/Protótipo2_page-0001.jpg"><br>
 <hr>
 <img src="arquivos/Protótipo2_page-0002.jpg"><br>
@@ -81,13 +81,15 @@ b) inclusão das Histórias de usuário desenvolvidas pelo grupo<br>
 * Relatório de supervisores e supervisionados incluindo as seguintes informações: nome do supervisor e nome do supervisionado.
  
 
-### 6 TABELA DE DADOS DO SISTEMA:
+### 6. TABELA DE DADOS DO SISTEMA:
   
   ### Link da tabela
   https://docs.google.com/spreadsheets/d/1qAd4MRqutDYQ0STj_ZWVn1yk-ysUNSTcT1-sfBa1qvo/edit?usp=sharing
   
-  
- 
+<img src="arquivos/Banco de Dados - Página1_page-0001.jpg"><br>
+<hr>
+<img src="arquivos/Banco de Dados - Página1_page-0002.jpg"><br>
+<hr> 
  
  ### 7.MODELO CONCEITUAL<br>
     A) Utilizar a Notação adequada (Preferencialmente utilizar o BR Modelo 3)
