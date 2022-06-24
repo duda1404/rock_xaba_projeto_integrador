@@ -36,7 +36,7 @@ a) inclusão do PMC desenvolvido pelo grupo <br>
 
 a) inclusão das Personas desenvolvidas pelo grupo<br>
 
-<img src="arquivos/Personas1.jpg" height="800px" width="1000px"><br>
+<img src="arquivos/Personas1.jpg"><br>
 <img src="arquivos/Personas2.jpg"><br>
 <img src="arquivos/Personas3.jpg"><br>
 <img src="arquivos/Personas4.jpg"><br>
