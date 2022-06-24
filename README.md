@@ -43,23 +43,31 @@ a) inclusão das Personas desenvolvidas pelo grupo<br>
 <hr>
 <img src="arquivos/Personas4.jpg"><br>
 <img src="arquivos/Personas5.jpg" height="200px" width="1000px"><br>
-<hr>
+<hr><br>
 
 b) inclusão das Histórias de usuário desenvolvidas pelo grupo<br>
 
 <img src="arquivos/HU1.jpg" height="800px" width="600px"><br>
 <hr>
 <img src="arquivos/HU2.jpg" height="683px" width="1240px"><br>
-<hr>
+<hr><br>
 
 ### 5.RASCUNHOS BÁSICOS DA INTERFACE (MOCKUPS)<br>
-Neste ponto a codificação não e necessária, somente as ideias de telas devem ser desenvolvidas. O princípio aqui é pensar na criação da interface para identificar possíveis informações a serem armazenadas e/ou descartadas <br>
 
-Sugestão: https://balsamiq.com/products/mockups/<br>
-
-![Alt text](https://github.com/discproint/template_projeto_integrador/blob/main/arquivos/balsamiq.png?raw=true "Title")
-![Arquivo PDF do Protótipo Balsamiq feito para Empresa Devcom](https://github.com/discproint/template_projeto_integrador/blob/main/arquivos/EmpresaDevcom.pdf?raw=true "Empresa Devcom")
-
+<img src="arquivos/Protótipo2_page-0001"><br>
+<hr>
+<img src="arquivos/Protótipo2_page-0002"><br>
+<hr>
+<img src="arquivos/Protótipo2_page-0003"><br>
+<hr>
+<img src="arquivos/Protótipo2_page-0004"><br>
+<hr>
+<img src="arquivos/Protótipo2_page-0005"><br>
+<hr>
+<img src="arquivos/Protótipo2_page-0006"><br>
+<hr>
+<img src="arquivos/Protótipo2_page-0007"><br>
+<hr>
 
 #### 5.1 QUAIS PERGUNTAS PODEM SER RESPONDIDAS COM O SISTEMA PROPOSTO?
     a) O sistema proposto poderá fornecer quais tipos de relatórios e informaçes? 
