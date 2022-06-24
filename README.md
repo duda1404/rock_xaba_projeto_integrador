@@ -8,7 +8,6 @@ Integrantes do grupo<br>
 Maria Eduarda Silva Fernandes: dudinha140405@gmail.com<br>
 Gileardy Barros da Silva: gileard96@gmail.com<br>
 Victor Portes Antunes Valentim: walentim23@gmail.com
-...
 
 ### 2.MINIMUNDO<br>
 
