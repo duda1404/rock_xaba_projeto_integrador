@@ -40,7 +40,7 @@ a) inclusão das Personas desenvolvidas pelo grupo<br>
 <img src="arquivos/Personas2.jpg"><br>
 <img src="arquivos/Personas3.jpg" height="600px" width="600px"><br>
 <img src="arquivos/Personas4.jpg"><br>
-<img src="arquivos/Personas5.jpg"><br>
+<img src="arquivos/Personas5.jpg" height="600px" width="600px"><br>
 
 b) inclusão das Histórias de usuário desenvolvidas pelo grupo<br>
 
