@@ -34,7 +34,7 @@ a) inclusão do PMC desenvolvido pelo grupo <br>
 
 ### 4.Personas e Histórias de usuário<br>
 
-a) inclusão dos Persons desenvolvidos pelo grupo<br>
+a) inclusão das Personas desenvolvidas pelo grupo<br>
 
 <img src="arquivos/Personas1.jpg"><br>
 <img src="arquivos/Personas2.jpg"><br>
