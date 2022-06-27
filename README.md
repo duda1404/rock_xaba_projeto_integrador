@@ -93,7 +93,7 @@ b) inclusão das Histórias de usuário desenvolvidas pelo grupo<br>
  
  ### 7.MODELO CONCEITUAL<br>
     
-     ###Principais entidades do sistema em desenvolvimento:### Usuário, Artista e Evento
+     Principais entidades do sistema em desenvolvimento: Usuário, Artista e Evento
 <br>
 <img src="arquivos/Conceitual_25_06.png"><br>
       
@@ -110,7 +110,6 @@ b) inclusão das Histórias de usuário desenvolvidas pelo grupo<br>
         b) Protótipo vs Modelo conceitual
         (não serão aceitos modelos que não estejam em conformidade)
         c) Backlog (caso solicitado)
-        
 
 
 ### 9	MODELO LÓGICO<br>
@@ -121,7 +120,6 @@ b) inclusão das Histórias de usuário desenvolvidas pelo grupo<br>
 ### 10	MODELO FÍSICO<br>
         a) inclusão das instruções de criacão das estruturas em SQL/DDL 
         (criação de tabelas, alterações, etc..) 
-        
        
 ### 11	INSERT APLICADO NAS TABELAS DO BANCO DE DADOS<br>
         a) inclusão das instruções de inserção dos dados nas tabelas criadas pelo script de modelo físico
