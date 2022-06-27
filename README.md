@@ -104,11 +104,60 @@ b) inclusão das Histórias de usuário desenvolvidas pelo grupo<br>
       
     
 #### 7.1 Descrição dos dados 
-    [objeto]: [descrição do objeto]
     
-    EXEMPLO:
-    CLIENTE: Tabela que armazena as informações relativas ao cliente<br>
-    CPF: campo que armazena o número de Cadastro de Pessoa Física para cada cliente da empresa.<br>
+USUÁRIO: Tabela que armazena os dados do usuário.
+id_user: campo que armazena o id do usuário..
+senha_user: campo que armazena a senha do usuário.
+email_user: campo que armazena o email do usuário.
+nome_user: campo que armazena o nome do usuário.
+FK_TIPO_USUARIO_codigo: campo que armazena e determina o tipo de usuário.
+
+TIPO_USUÁRIO: Tabela que armazena os tipos de usuário.
+codigo: campo que armazena o código referente a cada tipo de usuário.
+dsc_tipo: descrição do tipo de usuário.
+
+ARTISTA: Tabela que armazena os dados do artista.
+id_artista: campo que armazena o id do artista.    
+nome_artista: campo que armazena o nome do artista.    
+dsc_artista: campo que armazena a descrição do artista.    
+link_play: campo que armazena o link para o Spotify do artista.
+FK_USUARIO_id_user: chave estrangeira referente ao tipo de usuário.
+
+ARTISTA_GENERO: Tabela que relaciona um artista a um gênero.
+FK_GENERO_id_gen: chave estrangeira com o gênero musical.    
+FK_ARTISTA_id_artista: chave estrangeira com o id do artista.
+
+GENERO: Tabela que armazena o id e gênero musical dos artistas. 
+id_gen: campo que armazena o id referente ao gênero.
+dsc_gen: campo que armazena a descrição do gênero.
+
+CATALOGO: Tabela que armazena o catálogo referente a cada artista.
+id_catalog: campo que armazena o id do catálogo.    
+FK_ARTISTA_id_artista: chave estrangeira que armazena o id do artista.
+
+
+PRODUTO: Tabela que armazena os produtos referentes ao catálogo de cada artista.
+id_produto:    campo que armazena o id do produto.
+nome_produto: campo que armazena o nome do produto.    
+dsc_produto:    campo que armazena a descrição do produto.
+preco_produto: campo que armazena o preço do produto.    
+FK_CATALOG_id_catalog: chave estrangeira referente ao id do catálogo que o produto pertence.
+
+COMPRA: Tabela que armazena os dados da compra de um usuário.
+FK_PRODUTO_id_produto: chave estrangeira referente ao id do produto que foi comprado.    
+FK_USUARIO_id_user: chave estrangeira referente ao id do usuário que realizou a compra.    
+cod_compra:    campo que armazena o código da compra.
+data_compra: campo que armazena a data em que a compra foi realizada.
+
+EVENTO: Tabela que armazena os dados do evento.
+id_evento: campo que armazena o id do evento.    
+dat_evento: campo que armazena a data do evento.    
+dsc_evento: campo que armazena a descrição do evento.
+local_evento: campo que armazena    o local do evento.
+preco_evento: campo que armazena     o preço do ingresso.
+dat_limite_ingresso: campo que armazena a data final da venda do ingresso.    
+dat_inicio_ingresso: campo que armazena a data inicial da venda do ingresso.
+FK_USUARIO_id_user: chave estrangeira relativa ao id do usuário que adicionou o evento.
 
 ### 8	RASTREABILIDADE DOS ARTEFATOS<br>
         a) Historia de usuários vs protótipo (mockup)
