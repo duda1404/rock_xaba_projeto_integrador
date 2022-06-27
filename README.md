@@ -73,7 +73,7 @@ b) inclusão das Histórias de usuário desenvolvidas pelo grupo<br>
 
     a) O sistema proposto poderá fornecer quais tipos de relatórios e informações?
     
-        O sistema proposto poderá fornecer relatórios e informações com relação ao usuário, seu nome, seu email, sua senha, o id a ele atribuido, e seu tipo 
+    O sistema proposto poderá fornecer relatórios e informações com relação ao usuário, seu nome, seu email, sua senha, o id a ele atribuido, e seu tipo 
     dentro do site (podendo ser comum, artista, administrador e adiministrador_artista). Poderá também fornecer relatórios quanto ao número de artistas, seu     nome, gênero musical, descrição, playlist e catálogo, e os produtos que nele estão. Pode fornecer relatórios referentes aos produtos comprados, e aos         eventos adicionados ao site
     
     b) Crie uma lista com os 5 principais relatórios que poderão ser obtidos por meio do sistema proposto!
@@ -86,6 +86,8 @@ b) inclusão das Histórias de usuário desenvolvidas pelo grupo<br>
  
 
 ### 6. TABELA DE DADOS DO SISTEMA:
+    
+   
   
   ### Link da tabela
   https://docs.google.com/spreadsheets/d/1qAd4MRqutDYQ0STj_ZWVn1yk-ysUNSTcT1-sfBa1qvo/edit?usp=sharing
