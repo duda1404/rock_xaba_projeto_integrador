@@ -1,0 +1,108 @@
+/* Lógico_25_06: */
+
+CREATE TABLE USUARIO (
+    id_user integer PRIMARY KEY,
+    senha_user varchar(100),
+    email_user varchar(100),
+    nome_user varchar(100),
+    FK_TIPO_USUARIO_codigo integer
+);
+
+CREATE TABLE ARTISTA (
+    id_artista integer PRIMARY KEY,
+    nome_artista varchar(100),
+    dsc_artista varchar(100),
+    link_play varchar(100),
+    FK_USUARIO_id_user integer
+);
+
+CREATE TABLE CATALOGO (
+    id_catalog integer PRIMARY KEY,
+    FK_ARTISTA_id_artista integer
+);
+
+CREATE TABLE PRODUTO (
+    id_produto integer PRIMARY KEY,
+    nome_produto varchar(100),
+    dsc_produto varchar(100),
+    preco_produto varchar(100),
+    FK_CATALOGO_id_catalog integer
+);
+
+CREATE TABLE EVENTO (
+    id_evento integer PRIMARY KEY,
+    dat_evento date,
+    dsc_evento varchar(1000),
+    local_evento varchar(100),
+    preco_evento varchar(100),
+    dat_limite_ingresso date,
+    dat_inicio_ingresso date,
+    FK_USUARIO_id_user integer
+);
+
+CREATE TABLE TIPO_USUARIO (
+    codigo integer PRIMARY KEY,
+    dsc_tipo varchar(1000)
+);
+
+CREATE TABLE GENERO (
+    id_gen integer PRIMARY KEY,
+    dsc_genero varchar(1000)
+);
+
+CREATE TABLE COMPRA (
+    FK_PRODUTO_id_produto integer,
+    FK_USUARIO_id_user integer,
+    cod_compra integer PRIMARY KEY,
+    data_compra varchar(100)
+);
+
+CREATE TABLE ARTISTA_GENERO (
+    FK_GENERO_id_gen integer,
+    FK_ARTISTA_id_artista integer
+);
+ 
+ALTER TABLE USUARIO ADD CONSTRAINT FK_USUARIO_2
+    FOREIGN KEY (FK_TIPO_USUARIO_codigo)
+    REFERENCES TIPO_USUARIO (codigo)
+    ON DELETE RESTRICT;
+ 
+ALTER TABLE ARTISTA ADD CONSTRAINT FK_ARTISTA_2
+    FOREIGN KEY (FK_USUARIO_id_user)
+    REFERENCES USUARIO (id_user)
+    ON DELETE CASCADE;
+ 
+ALTER TABLE CATALOGO ADD CONSTRAINT FK_CATALOGO_2
+    FOREIGN KEY (FK_ARTISTA_id_artista)
+    REFERENCES ARTISTA (id_artista)
+    ON DELETE CASCADE;
+ 
+ALTER TABLE PRODUTO ADD CONSTRAINT FK_PRODUTO_2
+    FOREIGN KEY (FK_CATALOGO_id_catalog)
+    REFERENCES CATALOGO (id_catalog)
+    ON DELETE RESTRICT;
+ 
+ALTER TABLE EVENTO ADD CONSTRAINT FK_EVENTO_2
+    FOREIGN KEY (FK_USUARIO_id_user)
+    REFERENCES USUARIO (id_user)
+    ON DELETE CASCADE;
+ 
+ALTER TABLE COMPRA ADD CONSTRAINT FK_COMPRA_2
+    FOREIGN KEY (FK_PRODUTO_id_produto)
+    REFERENCES PRODUTO (id_produto)
+    ON DELETE SET NULL;
+ 
+ALTER TABLE COMPRA ADD CONSTRAINT FK_COMPRA_3
+    FOREIGN KEY (FK_USUARIO_id_user)
+    REFERENCES USUARIO (id_user)
+    ON DELETE SET NULL;
+ 
+ALTER TABLE ARTISTA_GENERO ADD CONSTRAINT FK_ARTISTA_GENERO_1
+    FOREIGN KEY (FK_GENERO_id_gen)
+    REFERENCES GENERO (id_gen)
+    ON DELETE RESTRICT;
+ 
+ALTER TABLE ARTISTA_GENERO ADD CONSTRAINT FK_ARTISTA_GENERO_2
+    FOREIGN KEY (FK_ARTISTA_id_artista)
+    REFERENCES ARTISTA (id_artista)
+    ON DELETE SET NULL;
