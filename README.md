@@ -161,7 +161,10 @@ FK_USUARIO_id_user: chave estrangeira relativa ao id do usuário que adicionou o
 
 ### 8	RASTREABILIDADE DOS ARTEFATOS<br>
         a) Historia de usuários vs protótipo (mockup)
+        
         b) Protótipo vs Modelo conceitual
+        https://docs.google.com/document/d/14xMxds2hX2hrbi7a-_bTq8QeyV_rjLOzAJpNfi_d4PM/edit
+        
         (não serão aceitos modelos que não estejam em conformidade)
         c) Backlog (caso solicitado)
 
