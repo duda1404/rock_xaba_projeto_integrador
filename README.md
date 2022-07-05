@@ -171,13 +171,13 @@ FK_USUARIO_id_user: chave estrangeira relativa ao id do usuário que adicionou o
         
         
         b) Protótipo vs Modelo conceitual
-   <img src="arquivos/modeloconceitual_rastrabilidade_page-0001"><br>
+   <img src="arquivos/modeloconceitual_rastrabilidade_page-0001.jpg"><br>
         <hr>
         
-   <img src="arquivos/modeloconceitual_rastrabilidade_page-0002"><br>
+   <img src="arquivos/modeloconceitual_rastrabilidade_page-0002.jpg"><br>
         <hr>
         
-   <img src="arquivos/modeloconceitual_rastrabilidade_page-0003"><br>
+   <img src="arquivos/modeloconceitual_rastrabilidade_page-0003.jpg"><br>
         <hr>
         
         (não serão aceitos modelos que não estejam em conformidade)
