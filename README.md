@@ -171,7 +171,14 @@ FK_USUARIO_id_user: chave estrangeira relativa ao id do usuário que adicionou o
         
         
         b) Protótipo vs Modelo conceitual
-        https://docs.google.com/document/d/14xMxds2hX2hrbi7a-_bTq8QeyV_rjLOzAJpNfi_d4PM/edit
+        <img src="arquivos/modeloconceitual_rastrabilidade_page-0001"><br>
+        <hr>
+        
+        <img src="arquivos/modeloconceitual_rastrabilidade_page-0002"><br>
+        <hr>
+        
+        <img src="arquivos/modeloconceitual_rastrabilidade_page-0003"><br>
+        <hr>
         
         (não serão aceitos modelos que não estejam em conformidade)
         c) Backlog (caso solicitado)
