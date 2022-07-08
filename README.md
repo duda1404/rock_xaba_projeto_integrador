@@ -357,7 +357,7 @@ insert into artista_genero (FK_GENERO_id_gen, FK_ARTISTA_id_artista) values
   b) Além da consulta deve ser apresentada uma imagem com o resultado obtido para cada consulta.<br>
  #### 12.3 ANTEPROJETO VERSÃO 1
  
- Link para [Modelo de Anteprojeto](https://docs.google.com/document/d/1oeVS2CUffbSNYWxIWZFY_mX6E5ao_PHU/edit?usp=sharing&ouid=104104747195236161434&rtpof=true&sd=true)
+ Link([https://docs.google.com/document/d/1oeVS2CUffbSNYWxIWZFY_mX6E5ao_PHU/edit?usp=sharing&ouid=104104747195236161434&rtpof=true&sd=true](https://docs.google.com/document/d/1rqnJRio-i-UtDD3xdmRanwPloqc-fgYB/edit))
  
  <br>
  <br>
