@@ -309,10 +309,9 @@ ALTER TABLE ARTISTA_GENERO ADD CONSTRAINT FK_ARTISTA_GENERO_2
 ### 11	INSERT APLICADO NAS TABELAS DO BANCO DE DADOS<br>
         a) inclusão das instruções de inserção dos dados nas tabelas criadas pelo script de modelo físico
         (Drop para exclusão de tabelas + create definição de para tabelas e estruturas de dados 
-        <br> + insert para dados a serem inseridos)
+        <br> + insert para dados a serem inseridos)        
         
-        insert into tipo_usuario(codigo, dsc_tipo) values 
-('1',	'Comum'),
+insert into tipo_usuario(codigo, dsc_tipo) values  ('1',	'Comum'),
 ('2',	'Artista'),
 ('3',	'Administrador'),
 ('4',	'Administrador_Artista');
@@ -385,6 +384,9 @@ insert into artista_genero (FK_GENERO_id_gen, FK_ARTISTA_id_artista) values
 ('7',	'5782'),
 ('8',	'6589'),
 ('6',	'7885');
+        
+        
+
         
         b) Criar um novo banco de dados para testar a restauracao 
         (em caso de falha na restauração o grupo não pontuará neste quesito)
