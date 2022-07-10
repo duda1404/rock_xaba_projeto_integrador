@@ -342,7 +342,7 @@ insert into artista_genero (FK_GENERO_id_gen, FK_ARTISTA_id_artista) values
         b) Criar um novo banco de dados para testar a restauracao 
         (em caso de falha na restauração o grupo não pontuará neste quesito)
         
-        https://github.com/duda1404/rock_xaba_projeto_integrador/blob/7edd7acfa7c1d71daf870f318d9db9b6cde50b61/arquivos/rock_xaba.sql
+  https://github.com/duda1404/rock_xaba_projeto_integrador/blob/7edd7acfa7c1d71daf870f318d9db9b6cde50b61/arquivos/rock_xaba.sql
       
 
 ### 12	TABELAS E PRINCIPAIS CONSULTAS<br>
