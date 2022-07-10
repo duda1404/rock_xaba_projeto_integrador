@@ -195,7 +195,7 @@ FK_USUARIO_id_user: chave estrangeira relativa ao id do usuário que adicionou o
 ### 10	MODELO FÍSICO<br>
         a) inclusão das instruções de criacão das estruturas em SQL/DDL 
         
-          /* Lógico_25_06: */
+/* Físico_25_06: */
 
 DROP DATABASE IF EXISTS rockxaba;
 
