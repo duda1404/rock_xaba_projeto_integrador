@@ -253,11 +253,6 @@ ALTER TABLE ARTISTA_GENERO ADD CONSTRAINT FK_ARTISTA_GENERO_2 FOREIGN KEY (FK_AR
         
 CREATE DATABASE  IF NOT EXISTS `rockxaba` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `rockxaba`;
--- MySQL dump 10.13  Distrib 8.0.29, for Win64 (x86_64)
---
--- Host: localhost    Database: rockxaba
--- ------------------------------------------------------
--- Server version	8.0.29
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -270,9 +265,6 @@ USE `rockxaba`;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
---
--- Table structure for table `artista`
---
 
 DROP TABLE IF EXISTS `artista`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -289,19 +281,12 @@ CREATE TABLE `artista` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `artista`
---
 
 LOCK TABLES `artista` WRITE;
 /*!40000 ALTER TABLE `artista` DISABLE KEYS */;
 INSERT INTO `artista` VALUES (2937,'Jemima','Meu nome é Jemima, eu toco Blues','http://spotify.com',9264),(2979,'Griffith','Meu nome é Griffith, eu toco Indie','http://spotify.com',2147),(3041,'Zephr','Meu nome é Zephr, eu toco Forrô','http://spotify.com',7885),(3385,'Porter','Meu nome é Porter, eu toco Folk','http://spotify.com',7349),(4762,',Kasper','Meu nome é Kasper, eu toco Funk','http://spotify.com',8685),(5782,'Lareina','Meu nome é Lareina, eu toco Eletrônica','http://spotify.com',8139),(6589,'Miranda','Meu nome é Miranda, eu toco Punk','http://spotify.com',2979),(7885,'Galvin','Meu nome é Galvin, eu toco Funk','http://spotify.com',1836);
 /*!40000 ALTER TABLE `artista` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `artista_genero`
---
 
 DROP TABLE IF EXISTS `artista_genero`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -316,19 +301,11 @@ CREATE TABLE `artista_genero` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `artista_genero`
---
-
 LOCK TABLES `artista_genero` WRITE;
 /*!40000 ALTER TABLE `artista_genero` DISABLE KEYS */;
 INSERT INTO `artista_genero` VALUES (2,2937),(3,2979),(4,3041),(5,3385),(6,4762),(7,5782),(8,6589),(6,7885);
 /*!40000 ALTER TABLE `artista_genero` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `catalogo`
---
 
 DROP TABLE IF EXISTS `catalogo`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -342,19 +319,11 @@ CREATE TABLE `catalogo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `catalogo`
---
-
 LOCK TABLES `catalogo` WRITE;
 /*!40000 ALTER TABLE `catalogo` DISABLE KEYS */;
 INSERT INTO `catalogo` VALUES (1262,2979),(6349,3041),(9550,3385),(5426,4762),(9399,5782),(6320,6589);
 /*!40000 ALTER TABLE `catalogo` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `compra`
---
 
 DROP TABLE IF EXISTS `compra`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -372,9 +341,6 @@ CREATE TABLE `compra` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `compra`
---
 
 LOCK TABLES `compra` WRITE;
 /*!40000 ALTER TABLE `compra` DISABLE KEYS */;
@@ -382,9 +348,6 @@ INSERT INTO `compra` VALUES (4321,7349,1234,'2022/09/06'),(3455,8685,2140,'2022/
 /*!40000 ALTER TABLE `compra` ENABLE KEYS */;
 UNLOCK TABLES;
 
---
--- Table structure for table `evento`
---
 
 DROP TABLE IF EXISTS `evento`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -404,19 +367,12 @@ CREATE TABLE `evento` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `evento`
---
 
 LOCK TABLES `evento` WRITE;
 /*!40000 ALTER TABLE `evento` DISABLE KEYS */;
 INSERT INTO `evento` VALUES (2040,'2022-07-08','Casa de Show Rogers','Casa de Show Rogers','240','2022-07-02','2022-06-04',6851),(4080,'2022-08-24','Casa de Show Tibre','Casa de Show Tibre','180','2022-08-15','2022-08-02',8685),(8000,'2022-04-12','Casa de Show Nickels','Casa de Show Nickels','580','2022-04-10','2022-04-02',8139);
 /*!40000 ALTER TABLE `evento` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `genero`
---
 
 DROP TABLE IF EXISTS `genero`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -428,19 +384,12 @@ CREATE TABLE `genero` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `genero`
---
-
 LOCK TABLES `genero` WRITE;
 /*!40000 ALTER TABLE `genero` DISABLE KEYS */;
 INSERT INTO `genero` VALUES (1,'Pop'),(2,'Blues'),(3,'Indie'),(4,'Forrô'),(5,'Folk'),(6,'Funk'),(7,'Eletrônica'),(8,'Punk');
 /*!40000 ALTER TABLE `genero` ENABLE KEYS */;
 UNLOCK TABLES;
 
---
--- Table structure for table `produto`
---
 
 DROP TABLE IF EXISTS `produto`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -457,9 +406,6 @@ CREATE TABLE `produto` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `produto`
---
 
 LOCK TABLES `produto` WRITE;
 /*!40000 ALTER TABLE `produto` DISABLE KEYS */;
@@ -467,9 +413,6 @@ INSERT INTO `produto` VALUES (1000,'Caneca Punk','Caneca Punk','50',6320),(1789,
 /*!40000 ALTER TABLE `produto` ENABLE KEYS */;
 UNLOCK TABLES;
 
---
--- Table structure for table `tipo_usuario`
---
 
 DROP TABLE IF EXISTS `tipo_usuario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -481,9 +424,6 @@ CREATE TABLE `tipo_usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `tipo_usuario`
---
 
 LOCK TABLES `tipo_usuario` WRITE;
 /*!40000 ALTER TABLE `tipo_usuario` DISABLE KEYS */;
@@ -491,9 +431,6 @@ INSERT INTO `tipo_usuario` VALUES (1,'Comum'),(2,'Artista'),(3,'Administrador'),
 /*!40000 ALTER TABLE `tipo_usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
---
--- Table structure for table `usuario`
---
 
 DROP TABLE IF EXISTS `usuario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -509,10 +446,6 @@ CREATE TABLE `usuario` (
   CONSTRAINT `FK_USUARIO_2` FOREIGN KEY (`FK_TIPO_USUARIO_codigo`) REFERENCES `tipo_usuario` (`codigo`) ON DELETE RESTRICT
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `usuario`
---
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
