@@ -251,218 +251,117 @@ ALTER TABLE ARTISTA_GENERO ADD CONSTRAINT FK_ARTISTA_GENERO_2 FOREIGN KEY (FK_AR
         (Drop para exclusão de tabelas + create definição de para tabelas e estruturas de dados 
         <br> + insert para dados a serem inseridos)        
         
-CREATE DATABASE  IF NOT EXISTS `rockxaba` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `rockxaba`;
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
-
-DROP TABLE IF EXISTS `artista`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `artista` (
-  `id_artista` int NOT NULL,
-  `nome_artista` varchar(100) DEFAULT NULL,
-  `dsc_artista` varchar(100) DEFAULT NULL,
-  `link_play` varchar(100) DEFAULT NULL,
-  `FK_USUARIO_id_user` int DEFAULT NULL,
-  PRIMARY KEY (`id_artista`),
-  KEY `FK_ARTISTA_2` (`FK_USUARIO_id_user`),
-  CONSTRAINT `FK_ARTISTA_2` FOREIGN KEY (`FK_USUARIO_id_user`) REFERENCES `usuario` (`id_user`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
-
-LOCK TABLES `artista` WRITE;
-/*!40000 ALTER TABLE `artista` DISABLE KEYS */;
-INSERT INTO `artista` VALUES (2937,'Jemima','Meu nome é Jemima, eu toco Blues','http://spotify.com',9264),(2979,'Griffith','Meu nome é Griffith, eu toco Indie','http://spotify.com',2147),(3041,'Zephr','Meu nome é Zephr, eu toco Forrô','http://spotify.com',7885),(3385,'Porter','Meu nome é Porter, eu toco Folk','http://spotify.com',7349),(4762,',Kasper','Meu nome é Kasper, eu toco Funk','http://spotify.com',8685),(5782,'Lareina','Meu nome é Lareina, eu toco Eletrônica','http://spotify.com',8139),(6589,'Miranda','Meu nome é Miranda, eu toco Punk','http://spotify.com',2979),(7885,'Galvin','Meu nome é Galvin, eu toco Funk','http://spotify.com',1836);
-/*!40000 ALTER TABLE `artista` ENABLE KEYS */;
-UNLOCK TABLES;
+USE rockxaba;
 
 DROP TABLE IF EXISTS `artista_genero`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `artista_genero` (
-  `FK_GENERO_id_gen` int DEFAULT NULL,
-  `FK_ARTISTA_id_artista` int DEFAULT NULL,
-  KEY `FK_ARTISTA_GENERO_1` (`FK_GENERO_id_gen`),
-  KEY `FK_ARTISTA_GENERO_2` (`FK_ARTISTA_id_artista`),
-  CONSTRAINT `FK_ARTISTA_GENERO_1` FOREIGN KEY (`FK_GENERO_id_gen`) REFERENCES `genero` (`id_gen`) ON DELETE RESTRICT,
-  CONSTRAINT `FK_ARTISTA_GENERO_2` FOREIGN KEY (`FK_ARTISTA_id_artista`) REFERENCES `artista` (`id_artista`) ON DELETE SET NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
-LOCK TABLES `artista_genero` WRITE;
-/*!40000 ALTER TABLE `artista_genero` DISABLE KEYS */;
-INSERT INTO `artista_genero` VALUES (2,2937),(3,2979),(4,3041),(5,3385),(6,4762),(7,5782),(8,6589),(6,7885);
-/*!40000 ALTER TABLE `artista_genero` ENABLE KEYS */;
-UNLOCK TABLES;
-
-DROP TABLE IF EXISTS `catalogo`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `catalogo` (
-  `id_catalog` int NOT NULL,
-  `FK_ARTISTA_id_artista` int DEFAULT NULL,
-  PRIMARY KEY (`id_catalog`),
-  KEY `FK_CATALOGO_2` (`FK_ARTISTA_id_artista`),
-  CONSTRAINT `FK_CATALOGO_2` FOREIGN KEY (`FK_ARTISTA_id_artista`) REFERENCES `artista` (`id_artista`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
-LOCK TABLES `catalogo` WRITE;
-/*!40000 ALTER TABLE `catalogo` DISABLE KEYS */;
-INSERT INTO `catalogo` VALUES (1262,2979),(6349,3041),(9550,3385),(5426,4762),(9399,5782),(6320,6589);
-/*!40000 ALTER TABLE `catalogo` ENABLE KEYS */;
-UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `compra`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `compra` (
-  `FK_PRODUTO_id_produto` int DEFAULT NULL,
-  `FK_USUARIO_id_user` int DEFAULT NULL,
-  `cod_compra` int NOT NULL,
-  `data_compra` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`cod_compra`),
-  KEY `FK_COMPRA_2` (`FK_PRODUTO_id_produto`),
-  KEY `FK_COMPRA_3` (`FK_USUARIO_id_user`),
-  CONSTRAINT `FK_COMPRA_2` FOREIGN KEY (`FK_PRODUTO_id_produto`) REFERENCES `produto` (`id_produto`) ON DELETE SET NULL,
-  CONSTRAINT `FK_COMPRA_3` FOREIGN KEY (`FK_USUARIO_id_user`) REFERENCES `usuario` (`id_user`) ON DELETE SET NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
-
-LOCK TABLES `compra` WRITE;
-/*!40000 ALTER TABLE `compra` DISABLE KEYS */;
-INSERT INTO `compra` VALUES (4321,7349,1234,'2022/09/06'),(3455,8685,2140,'2022/12/06'),(1000,7885,4700,'2022/05/06'),(9080,2147,9800,'2022/08/09');
-/*!40000 ALTER TABLE `compra` ENABLE KEYS */;
-UNLOCK TABLES;
-
-
-DROP TABLE IF EXISTS `evento`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `evento` (
-  `id_evento` int NOT NULL,
-  `dat_evento` date DEFAULT NULL,
-  `dsc_evento` varchar(1000) DEFAULT NULL,
-  `local_evento` varchar(100) DEFAULT NULL,
-  `preco_evento` varchar(100) DEFAULT NULL,
-  `dat_limite_ingresso` date DEFAULT NULL,
-  `dat_inicio_ingresso` date DEFAULT NULL,
-  `FK_USUARIO_id_user` int DEFAULT NULL,
-  PRIMARY KEY (`id_evento`),
-  KEY `FK_EVENTO_2` (`FK_USUARIO_id_user`),
-  CONSTRAINT `FK_EVENTO_2` FOREIGN KEY (`FK_USUARIO_id_user`) REFERENCES `usuario` (`id_user`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
-
-LOCK TABLES `evento` WRITE;
-/*!40000 ALTER TABLE `evento` DISABLE KEYS */;
-INSERT INTO `evento` VALUES (2040,'2022-07-08','Casa de Show Rogers','Casa de Show Rogers','240','2022-07-02','2022-06-04',6851),(4080,'2022-08-24','Casa de Show Tibre','Casa de Show Tibre','180','2022-08-15','2022-08-02',8685),(8000,'2022-04-12','Casa de Show Nickels','Casa de Show Nickels','580','2022-04-10','2022-04-02',8139);
-/*!40000 ALTER TABLE `evento` ENABLE KEYS */;
-UNLOCK TABLES;
-
-DROP TABLE IF EXISTS `genero`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `genero` (
-  `id_gen` int NOT NULL,
-  `dsc_genero` varchar(1000) DEFAULT NULL,
-  PRIMARY KEY (`id_gen`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
-LOCK TABLES `genero` WRITE;
-/*!40000 ALTER TABLE `genero` DISABLE KEYS */;
-INSERT INTO `genero` VALUES (1,'Pop'),(2,'Blues'),(3,'Indie'),(4,'Forrô'),(5,'Folk'),(6,'Funk'),(7,'Eletrônica'),(8,'Punk');
-/*!40000 ALTER TABLE `genero` ENABLE KEYS */;
-UNLOCK TABLES;
-
 
 DROP TABLE IF EXISTS `produto`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `produto` (
-  `id_produto` int NOT NULL,
-  `nome_produto` varchar(100) DEFAULT NULL,
-  `dsc_produto` varchar(100) DEFAULT NULL,
-  `preco_produto` varchar(100) DEFAULT NULL,
-  `FK_CATALOGO_id_catalog` int DEFAULT NULL,
-  PRIMARY KEY (`id_produto`),
-  KEY `FK_PRODUTO_2` (`FK_CATALOGO_id_catalog`),
-  CONSTRAINT `FK_PRODUTO_2` FOREIGN KEY (`FK_CATALOGO_id_catalog`) REFERENCES `catalogo` (`id_catalog`) ON DELETE RESTRICT
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
+DROP TABLE IF EXISTS `catalogo`;
 
-LOCK TABLES `produto` WRITE;
-/*!40000 ALTER TABLE `produto` DISABLE KEYS */;
-INSERT INTO `produto` VALUES (1000,'Caneca Punk','Caneca Punk','50',6320),(1789,'Caneca Funk','Caneca Funk','120',5426),(2022,'Caneca Forrô','Caneca Forrô','100',6349),(3455,'Camisa Folk','Camisa Folk','40',9550),(4321,'Caneca Indie','Caneca Indie','50',1262),(9080,'Camisa Eletrônica','Camisa Eletrônica','150',9399);
-/*!40000 ALTER TABLE `produto` ENABLE KEYS */;
-UNLOCK TABLES;
+DROP TABLE IF EXISTS `artista`;
 
+DROP TABLE IF EXISTS `evento`;
 
-DROP TABLE IF EXISTS `tipo_usuario`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tipo_usuario` (
-  `codigo` int NOT NULL,
-  `dsc_tipo` varchar(1000) DEFAULT NULL,
-  PRIMARY KEY (`codigo`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
-
-LOCK TABLES `tipo_usuario` WRITE;
-/*!40000 ALTER TABLE `tipo_usuario` DISABLE KEYS */;
-INSERT INTO `tipo_usuario` VALUES (1,'Comum'),(2,'Artista'),(3,'Administrador'),(4,'Administrador_Artista');
-/*!40000 ALTER TABLE `tipo_usuario` ENABLE KEYS */;
-UNLOCK TABLES;
-
+DROP TABLE IF EXISTS `genero`;
 
 DROP TABLE IF EXISTS `usuario`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `usuario` (
-  `id_user` int NOT NULL,
-  `senha_user` varchar(100) DEFAULT NULL,
-  `email_user` varchar(100) DEFAULT NULL,
-  `nome_user` varchar(100) DEFAULT NULL,
-  `FK_TIPO_USUARIO_codigo` int DEFAULT NULL,
-  PRIMARY KEY (`id_user`),
-  KEY `FK_USUARIO_2` (`FK_TIPO_USUARIO_codigo`),
-  CONSTRAINT `FK_USUARIO_2` FOREIGN KEY (`FK_TIPO_USUARIO_codigo`) REFERENCES `tipo_usuario` (`codigo`) ON DELETE RESTRICT
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
-LOCK TABLES `usuario` WRITE;
-/*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (1836,' VVD41BQO8RP','alladin@gmail.com','Aladdin Berg',2),(2147,' OBX41KGM0FW','orla@gmail.com,','Orla Dutra',2),(2979,' CLM98NTK6XW','derek@gmail.com','Derek Cabral',2),(6588,' PZQ51TZC8WK','scarlett@gmail.com','Scarlett Braga',1),(6851,' WOD36JKB8ER','branden@gmail.com','Branden Bryan',3),(7349,'KNS43UPJ8NF','lucius@gmail.com','Lucius Farrell',2),(7885,'UKO93LWT5WX','germane@gmail.com','Germane Bento',2),(8139,'ONR04LAE4RQ','daphne@gmail.com','Daphne Clayton',4),(8685,'XGN79WCL6FY','sigourney@gmail.com','Sigourney Moreno',4),(9264,' TEM15SBR7EJ','tatum@gmail.com','Tatum Barros',2);
-/*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+DROP TABLE IF EXISTS `tipo_usuario`;
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+CREATE TABLE USUARIO ( id_user integer PRIMARY KEY, senha_user varchar(100), email_user varchar(100), nome_user varchar(100), FK_TIPO_USUARIO_codigo integer );
 
--- Dump completed on 2022-07-10 21:59:47
+CREATE TABLE ARTISTA ( id_artista integer PRIMARY KEY, nome_artista varchar(100), dsc_artista varchar(100), link_play varchar(100), FK_USUARIO_id_user integer );
+
+CREATE TABLE CATALOGO ( id_catalog integer PRIMARY KEY, FK_ARTISTA_id_artista integer );
+
+CREATE TABLE PRODUTO ( id_produto integer PRIMARY KEY, nome_produto varchar(100), dsc_produto varchar(100), preco_produto varchar(100), FK_CATALOGO_id_catalog integer );
+
+CREATE TABLE EVENTO ( id_evento integer PRIMARY KEY, dat_evento date, dsc_evento varchar(1000), local_evento varchar(100), preco_evento varchar(100), dat_limite_ingresso date, dat_inicio_ingresso date, FK_USUARIO_id_user integer );
+
+CREATE TABLE TIPO_USUARIO ( codigo integer PRIMARY KEY, dsc_tipo varchar(1000) );
+
+CREATE TABLE GENERO ( id_gen integer PRIMARY KEY, dsc_genero varchar(1000) );
+
+CREATE TABLE COMPRA ( FK_PRODUTO_id_produto integer, FK_USUARIO_id_user integer, cod_compra integer PRIMARY KEY, data_compra varchar(100) );
+
+CREATE TABLE ARTISTA_GENERO ( FK_GENERO_id_gen integer, FK_ARTISTA_id_artista integer );
+
+insert into tipo_usuario(codigo, dsc_tipo) values  ('1',	'Comum'),
+('2',	'Artista'),
+('3',	'Administrador'),
+('4',	'Administrador_Artista');
+
+insert into usuario (id_user, senha_user, email_user, nome_user, FK_TIPO_USUARIO_codigo) values 
+('1836',' VVD41BQO8RP', 'alladin@gmail.com', 'Aladdin Berg', '2'),
+('2147',' OBX41KGM0FW', 	'orla@gmail.com,' , 'Orla Dutra','2'),
+('2979',' CLM98NTK6XW', 	'derek@gmail.com', 'Derek Cabral','2'),
+('6588',' PZQ51TZC8WK', 	'scarlett@gmail.com', 'Scarlett Braga','1'),
+('6851',' WOD36JKB8ER', 	'branden@gmail.com', 'Branden Bryan','3'),
+('7349', 'KNS43UPJ8NF',	'lucius@gmail.com', 'Lucius Farrell','2'),
+('7885', 'UKO93LWT5WX', 'germane@gmail.com', 'Germane Bento','2'),
+('8139', 'ONR04LAE4RQ',	 'daphne@gmail.com', 'Daphne Clayton','4'),
+('8685	', 'XGN79WCL6FY',	'sigourney@gmail.com', 'Sigourney Moreno','4'),
+('9264',' TEM15SBR7EJ',		'tatum@gmail.com', 'Tatum Barros','2');
+
+insert into genero (id_gen, dsc_genero) values 
+('1',	'Pop'),
+('2',	'Blues'),
+('3',	'Indie'),
+('4',	'Forrô'),
+('5',	'Folk'),
+('6',	'Funk'),
+('7',	'Eletrônica'),
+('8',	'Punk');
+
+insert into artista (id_artista, nome_artista, dsc_artista, link_play, FK_USUARIO_id_user) values
+('2937',	'Jemima',	'Meu nome é Jemima, eu toco Blues',		'http://spotify.com',	 '9264'),
+('2979',	'Griffith',	'Meu nome é Griffith, eu toco Indie',		'http://spotify.com',		 '2147'),
+('3041',	'Zephr',	'Meu nome é Zephr, eu toco Forrô',		'http://spotify.com',		'7885'),
+('3385',	'Porter',	'Meu nome é Porter, eu toco Folk',		'http://spotify.com',		 '7349'),
+('4762',	',Kasper',	'Meu nome é Kasper, eu toco Funk',		'http://spotify.com',		 '8685'),
+('5782',	'Lareina',	'Meu nome é Lareina, eu toco Eletrônica',		'http://spotify.com',		' 8139'),
+('6589',	'Miranda',	'Meu nome é Miranda, eu toco Punk',		'http://spotify.com',		 '2979'),
+('7885',	'Galvin',	'Meu nome é Galvin, eu toco Funk',		'http://spotify.com',		'1836');
+
+insert into catalogo (id_catalog, fk_artista_id_artista) values 
+('1262',	'2979'),
+('6349',	'3041'),
+('9550',	'3385'),
+('5426',	'4762'),
+('9399',	'5782'),
+('6320',	'6589');
+
+insert into produto (id_produto, nome_produto, dsc_produto, preco_produto, FK_CATALOGo_id_catalog) values
+('4321',	'Caneca Indie',	'Caneca Indie',	'50',	'1262'),
+('2022',	'Caneca Forrô',	'Caneca Forrô',	'100',	'6349'),
+('3455',	'Camisa Folk',	'Camisa Folk',	'40',	'9550'),
+('1789',	'Caneca Funk',	'Caneca Funk',	'120',	'5426'),
+('9080',	'Camisa Eletrônica',	'Camisa Eletrônica',	'150',	'9399'),
+('1000',	'Caneca Punk',	'Caneca Punk',	'50',	'6320');
+
+insert into compra (FK_PRODUTO_id_produto, FK_USUARIO_id_user, cod_compra, data_compra) values
+('9080', '2147',		'9800',	'2022/08/09'),
+('1000', '7885	',	'4700',	'2022/05/06'),
+('4321', '7349',		'1234',	'2022/09/06'),
+('3455', '8685',	'2140',	'2022/12/06');
+
+insert into evento (id_evento, dat_evento, dsc_evento, local_evento, preco_evento, dat_limite_ingresso, dat_inicio_ingresso, FK_USUARIO_id_user) values
+('2040',	'2022-07-08',	'Casa de Show Rogers',	'Casa de Show Rogers',	'240',	'2022-07-02',	'2022-06-04',	'6851'),
+('8000',	'2022-04-12',	'Casa de Show Nickels',	'Casa de Show Nickels',	'580',	'2022-04-10',	'2022-04-02',	'8139'),
+('4080',	'2022-08-24',	'Casa de Show Tibre',	'Casa de Show Tibre',	'180',	'2022-08-15',	'2022-08-02',	'8685');
+
+insert into artista_genero (FK_GENERO_id_gen, FK_ARTISTA_id_artista) values 
+('2',	'2937'),
+('3',	'2979'),
+('4',	'3041'),
+('5',	'3385'),
+('6',	'4762'),
+('7',	'5782'),
+('8',	'6589'),
+('6',	'7885');
 
         
         b) Criar um novo banco de dados para testar a restauracao 
