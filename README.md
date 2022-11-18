@@ -54,19 +54,33 @@ b) inclusão das Histórias de usuário desenvolvidas pelo grupo<br>
 
 ### 5.RASCUNHOS BÁSICOS DA INTERFACE (MOCKUPS)<br>
 <br>
-<img src="arquivos/Protótipo2_page-0001.jpg"><br>
+<img src="arquivos/Prototipo/Captura de tela 2022-11-18 111200.png"><br>
 <hr>
-<img src="arquivos/Protótipo2_page-0002.jpg"><br>
+<img src="arquivos/Prototipo/Captura de tela 2022-11-18 111237.png"><br>
 <hr>
-<img src="arquivos/Protótipo2_page-0003.jpg"><br>
+<img src="arquivos/Prototipo/Captura de tela 2022-11-18 111307.png"><br>
 <hr>
-<img src="arquivos/Protótipo2_page-0004.jpg"><br>
+<img src="arquivos/Prototipo/Captura de tela 2022-11-18 111330.png"><br>
 <hr>
-<img src="arquivos/Protótipo2_page-0005.jpg"><br>
+<img src="arquivos/Prototipo/Captura de tela 2022-11-18 111346.png"><br>
 <hr>
-<img src="arquivos/Protótipo2_page-0006.jpg"><br>
+<img src="arquivos/Prototipo/Captura de tela 2022-11-18 111406.png"><br>
 <hr>
-<img src="arquivos/Protótipo2_page-0007.jpg"><br>
+<img src="arquivos/Prototipo/Captura de tela 2022-11-18 111435.png"><br>
+<hr>
+<img src="arquivos/Prototipo/Captura de tela 2022-11-18 111531.png"><br>
+<hr>
+<img src="arquivos/Prototipo/Captura de tela 2022-11-18 111552.png"><br>
+<hr>
+<img src="arquivos/Prototipo/Captura de tela 2022-11-18 111614.png"><br>
+<hr>
+<img src="arquivos/Prototipo/Captura de tela 2022-11-18 111632.png"><br>
+<hr>
+<img src="arquivos/Prototipo/Captura de tela 2022-11-18 111724.png"><br>
+<hr>
+<img src="arquivos/Prototipo/Captura de tela 2022-11-18 111740.png"><br>
+<hr>
+<img src="arquivos/Prototipo/Captura de tela 2022-11-18 111817.png"><br>
 <hr>
 
 #### 5.1 QUAIS PERGUNTAS PODEM SER RESPONDIDAS COM O SISTEMA PROPOSTO?
