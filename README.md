@@ -211,52 +211,342 @@ FK_USUARIO_id_user: chave estrangeira relativa ao id do usuário que adicionou o
 ### 10	MODELO FÍSICO<br>
         a) inclusão das instruções de criacão das estruturas em SQL/DDL 
         
-/* Físico_25_06: */
+/* Físico_16_09: */
 
-DROP DATABASE IF EXISTS rockxaba;
+CREATE TABLE USUARIO (
+    id_user integer PRIMARY KEY,
+    email_user varchar(100),
+    nome_user varchar(100),
+    chave_confirm varchar(100),
+    chave_recupera_senha varchar(100),
+    photo_user varchar(100),
+    dsc_user varchar(100),
+    senha_user varchar(100),
+    data_add_user timestamp,
+    FK_TIPO_USUARIO_codigo integer,
+    FK_SITUACAO_id_sit integer
+);
 
-CREATE DATABASE rockxaba;
+CREATE TABLE ARTISTA (
+    id_artista integer PRIMARY KEY,
+    nome_artista varchar(100),
+    link_play varchar(100),
+    dsc_artista varchar(100),
+    dat_add_artista timestamp,
+    FK_USUARIO_id_user integer,
+    FK_SITUACAO_id_sit integer
+);
 
-USE rockxaba;
+CREATE TABLE CATALOGO (
+    id_catalog integer PRIMARY KEY,
+    link_catalog varchar(100),
+    dat_add_catalog timestamp,
+    FK_ARTISTA_id_artista integer,
+    FK_SITUACAO_id_sit integer
+);
 
-CREATE TABLE USUARIO ( id_user integer PRIMARY KEY, senha_user varchar(100), email_user varchar(100), nome_user varchar(100), FK_TIPO_USUARIO_codigo integer );
+CREATE TABLE EVENTO (
+    id_evento integer PRIMARY KEY,
+    dat_evento timestamp,
+    dsc_evento varchar(1000),
+    local_evento varchar(100),
+    preco_evento varchar(100),
+    dat_limite_ingresso timestamp,
+    dat_inicio_ingresso timestamp,
+    dat_add_evento timestamp,
+    FK_USUARIO_id_user integer,
+    FK_SITUACAO_id_sit integer
+);
 
-CREATE TABLE ARTISTA ( id_artista integer PRIMARY KEY, nome_artista varchar(100), dsc_artista varchar(100), link_play varchar(100), FK_USUARIO_id_user integer );
+CREATE TABLE TIPO_USUARIO (
+    dsc_tipo varchar(100),
+    codigo integer PRIMARY KEY
+);
 
-CREATE TABLE CATALOGO ( id_catalog integer PRIMARY KEY, FK_ARTISTA_id_artista integer );
+CREATE TABLE GENERO (
+    dsc_genero varchar(100),
+    id_gen integer PRIMARY KEY
+);
 
-CREATE TABLE PRODUTO ( id_produto integer PRIMARY KEY, nome_produto varchar(100), dsc_produto varchar(100), preco_produto varchar(100), FK_CATALOGO_id_catalog integer );
+CREATE TABLE COMENTARIO_EVENTO (
+    id_coment integer PRIMARY KEY,
+    dsc_coment varchar(100),
+    date_coment timestamp,
+    reply_of integer,
+    FK_EVENTO_id_evento integer,
+    FK_USUARIO_id_user integer,
+    FK_TIPO_COMENTARIO_id_tipo_coment integer
+);
 
-CREATE TABLE EVENTO ( id_evento integer PRIMARY KEY, dat_evento date, dsc_evento varchar(1000), local_evento varchar(100), preco_evento varchar(100), dat_limite_ingresso date, dat_inicio_ingresso date, FK_USUARIO_id_user integer );
+CREATE TABLE AVALIACAO_EVENTO (
+    id_aval integer PRIMARY KEY,
+    qtd_estrelas integer,
+    date_aval timestamp,
+    FK_EVENTO_id_evento integer,
+    FK_USUARIO_id_user integer
+);
 
-CREATE TABLE TIPO_USUARIO ( codigo integer PRIMARY KEY, dsc_tipo varchar(1000) );
+CREATE TABLE FOTO_EVENTO (
+    id_photo integer PRIMARY KEY,
+    photo_evento varchar(100),
+    FK_EVENTO_id_evento integer
+);
 
-CREATE TABLE GENERO ( id_gen integer PRIMARY KEY, dsc_genero varchar(1000) );
+CREATE TABLE FOTO_ARTISTA (
+    id_photo integer PRIMARY KEY,
+    photo_artista varchar(100),
+    FK_ARTISTA_id_artista integer
+);
 
-CREATE TABLE COMPRA ( FK_PRODUTO_id_produto integer, FK_USUARIO_id_user integer, cod_compra integer PRIMARY KEY, data_compra varchar(100) );
+CREATE TABLE FOTO_CATALOGO (
+    id_photo integer PRIMARY KEY,
+    photo_catalogo varchar(100),
+    FK_CATALOGO_id_catalog integer
+);
 
-CREATE TABLE ARTISTA_GENERO ( FK_GENERO_id_gen integer, FK_ARTISTA_id_artista integer );
+CREATE TABLE COMENTARIO_ARTISTA (
+    dsc_coment varchar(100),
+    date_coment timestamp,
+    id_coment integer PRIMARY KEY,
+    reply_of integer,
+    FK_ARTISTA_id_artista integer,
+    FK_USUARIO_id_user integer,
+    FK_TIPO_COMENTARIO_id_tipo_coment integer
+);
 
-ALTER TABLE USUARIO ADD CONSTRAINT FK_USUARIO_2 FOREIGN KEY (FK_TIPO_USUARIO_codigo) REFERENCES TIPO_USUARIO (codigo) ON DELETE RESTRICT;
+CREATE TABLE TIPO_COMENTARIO (
+    id_tipo_coment integer PRIMARY KEY,
+    dsc_tipo_coment varchar(100)
+);
 
-ALTER TABLE ARTISTA ADD CONSTRAINT FK_ARTISTA_2 FOREIGN KEY (FK_USUARIO_id_user) REFERENCES USUARIO (id_user) ON DELETE CASCADE;
+CREATE TABLE SUPORTE (
+    id_msg integer PRIMARY KEY,
+    dsc_msg varchar(100),
+    data_msg timestamp,
+    FK_USUARIO_id_user integer
+);
 
-ALTER TABLE CATALOGO ADD CONSTRAINT FK_CATALOGO_2 FOREIGN KEY (FK_ARTISTA_id_artista) REFERENCES ARTISTA (id_artista) ON DELETE CASCADE;
+CREATE TABLE REDE_SOCIAL (
+    id_rede_social integer PRIMARY KEY,
+    dsc_rede_social varchar(100),
+    icon_rede_social varchar(100)
+);
 
-ALTER TABLE PRODUTO ADD CONSTRAINT FK_PRODUTO_2 FOREIGN KEY (FK_CATALOGO_id_catalog) REFERENCES CATALOGO (id_catalog) ON DELETE RESTRICT;
+CREATE TABLE DESTAQUE (
+    id_destaque integer PRIMARY KEY,
+    dsc_destaque varchar(100),
+    photo_destaque varchar(100),
+    dat_add_destaque timestamp,
+    FK_ARTISTA_id_artista integer
+);
 
-ALTER TABLE EVENTO ADD CONSTRAINT FK_EVENTO_2 FOREIGN KEY (FK_USUARIO_id_user) REFERENCES USUARIO (id_user) ON DELETE CASCADE;
+CREATE TABLE SITUACAO (
+    id_sit integer PRIMARY KEY,
+    dsc_sit varchar(100)
+);
 
-ALTER TABLE COMPRA ADD CONSTRAINT FK_COMPRA_2 FOREIGN KEY (FK_PRODUTO_id_produto) REFERENCES PRODUTO (id_produto) ON DELETE SET NULL;
+CREATE TABLE ARTISTA_GENERO (
+    FK_GENERO_id_gen integer,
+    FK_ARTISTA_id_artista integer
+);
 
-ALTER TABLE COMPRA ADD CONSTRAINT FK_COMPRA_3 FOREIGN KEY (FK_USUARIO_id_user) REFERENCES USUARIO (id_user) ON DELETE SET NULL;
+CREATE TABLE SEGUIDORES_SEGUINDO (
+    FK_ARTISTA_id_artista integer,
+    FK_USUARIO_id_user integer,
+    id_seg integer PRIMARY KEY,
+    data_seg timestamp
+);
 
-ALTER TABLE ARTISTA_GENERO ADD CONSTRAINT FK_ARTISTA_GENERO_1 FOREIGN KEY (FK_GENERO_id_gen) REFERENCES GENERO (id_gen) ON DELETE RESTRICT;
+CREATE TABLE CURTIR_ARTISTA (
+    FK_USUARIO_id_user integer,
+    FK_ARTISTA_id_artista integer,
+    data_curtida timestamp,
+    id_curtida integer PRIMARY KEY
+);
 
-ALTER TABLE ARTISTA_GENERO ADD CONSTRAINT FK_ARTISTA_GENERO_2 FOREIGN KEY (FK_ARTISTA_id_artista) REFERENCES ARTISTA (id_artista) ON DELETE SET NULL;
+CREATE TABLE ARTISTA_REDE (
+    FK_ARTISTA_id_artista integer,
+    FK_REDE_SOCIAL_id_rede_social integer
+);
 
+CREATE TABLE CURTIR_COMENT_ARTISTA (
+    FK_USUARIO_id_user integer,
+    FK_COMENTARIO_ARTISTA_id_coment integer,
+    id_curtida integer PRIMARY KEY,
+    data_curtida timestamp
+);
 
-
+CREATE TABLE CURTIR_COMENT_EVENTO (
+    FK_COMENTARIO_EVENTO_id_coment integer,
+    FK_USUARIO_id_user integer,
+    id_curtida integer PRIMARY KEY,
+    data_curtida timestamp
+);
+ 
+ALTER TABLE USUARIO ADD CONSTRAINT FK_USUARIO_2
+    FOREIGN KEY (FK_TIPO_USUARIO_codigo)
+    REFERENCES TIPO_USUARIO (codigo)
+    ON DELETE RESTRICT;
+ 
+ALTER TABLE USUARIO ADD CONSTRAINT FK_USUARIO_3
+    FOREIGN KEY (FK_SITUACAO_id_sit)
+    REFERENCES SITUACAO (id_sit)
+    ON DELETE CASCADE;
+ 
+ALTER TABLE ARTISTA ADD CONSTRAINT FK_ARTISTA_2
+    FOREIGN KEY (FK_USUARIO_id_user)
+    REFERENCES USUARIO (id_user)
+    ON DELETE CASCADE;
+ 
+ALTER TABLE ARTISTA ADD CONSTRAINT FK_ARTISTA_3
+    FOREIGN KEY (FK_SITUACAO_id_sit)
+    REFERENCES SITUACAO (id_sit)
+    ON DELETE CASCADE;
+ 
+ALTER TABLE CATALOGO ADD CONSTRAINT FK_CATALOGO_2
+    FOREIGN KEY (FK_ARTISTA_id_artista)
+    REFERENCES ARTISTA (id_artista)
+    ON DELETE CASCADE;
+ 
+ALTER TABLE CATALOGO ADD CONSTRAINT FK_CATALOGO_3
+    FOREIGN KEY (FK_SITUACAO_id_sit)
+    REFERENCES SITUACAO (id_sit)
+    ON DELETE CASCADE;
+ 
+ALTER TABLE EVENTO ADD CONSTRAINT FK_EVENTO_2
+    FOREIGN KEY (FK_USUARIO_id_user)
+    REFERENCES USUARIO (id_user)
+    ON DELETE CASCADE;
+ 
+ALTER TABLE EVENTO ADD CONSTRAINT FK_EVENTO_3
+    FOREIGN KEY (FK_SITUACAO_id_sit)
+    REFERENCES SITUACAO (id_sit)
+    ON DELETE CASCADE;
+ 
+ALTER TABLE COMENTARIO_EVENTO ADD CONSTRAINT FK_COMENTARIO_EVENTO_2
+    FOREIGN KEY (FK_EVENTO_id_evento)
+    REFERENCES EVENTO (id_evento)
+    ON DELETE CASCADE;
+ 
+ALTER TABLE COMENTARIO_EVENTO ADD CONSTRAINT FK_COMENTARIO_EVENTO_3
+    FOREIGN KEY (FK_USUARIO_id_user)
+    REFERENCES USUARIO (id_user)
+    ON DELETE CASCADE;
+ 
+ALTER TABLE COMENTARIO_EVENTO ADD CONSTRAINT FK_COMENTARIO_EVENTO_4
+    FOREIGN KEY (FK_TIPO_COMENTARIO_id_tipo_coment)
+    REFERENCES TIPO_COMENTARIO (id_tipo_coment)
+    ON DELETE CASCADE;
+ 
+ALTER TABLE AVALIACAO_EVENTO ADD CONSTRAINT FK_AVALIACAO_EVENTO_2
+    FOREIGN KEY (FK_EVENTO_id_evento)
+    REFERENCES EVENTO (id_evento)
+    ON DELETE CASCADE;
+ 
+ALTER TABLE AVALIACAO_EVENTO ADD CONSTRAINT FK_AVALIACAO_EVENTO_3
+    FOREIGN KEY (FK_USUARIO_id_user)
+    REFERENCES USUARIO (id_user)
+    ON DELETE CASCADE;
+ 
+ALTER TABLE FOTO_EVENTO ADD CONSTRAINT FK_FOTO_EVENTO_2
+    FOREIGN KEY (FK_EVENTO_id_evento)
+    REFERENCES EVENTO (id_evento)
+    ON DELETE RESTRICT;
+ 
+ALTER TABLE FOTO_ARTISTA ADD CONSTRAINT FK_FOTO_ARTISTA_2
+    FOREIGN KEY (FK_ARTISTA_id_artista)
+    REFERENCES ARTISTA (id_artista)
+    ON DELETE RESTRICT;
+ 
+ALTER TABLE FOTO_CATALOGO ADD CONSTRAINT FK_FOTO_CATALOGO_2
+    FOREIGN KEY (FK_CATALOGO_id_catalog)
+    REFERENCES CATALOGO (id_catalog)
+    ON DELETE RESTRICT;
+ 
+ALTER TABLE COMENTARIO_ARTISTA ADD CONSTRAINT FK_COMENTARIO_ARTISTA_2
+    FOREIGN KEY (FK_ARTISTA_id_artista)
+    REFERENCES ARTISTA (id_artista)
+    ON DELETE CASCADE;
+ 
+ALTER TABLE COMENTARIO_ARTISTA ADD CONSTRAINT FK_COMENTARIO_ARTISTA_3
+    FOREIGN KEY (FK_USUARIO_id_user)
+    REFERENCES USUARIO (id_user)
+    ON DELETE CASCADE;
+ 
+ALTER TABLE COMENTARIO_ARTISTA ADD CONSTRAINT FK_COMENTARIO_ARTISTA_4
+    FOREIGN KEY (FK_TIPO_COMENTARIO_id_tipo_coment)
+    REFERENCES TIPO_COMENTARIO (id_tipo_coment)
+    ON DELETE CASCADE;
+ 
+ALTER TABLE SUPORTE ADD CONSTRAINT FK_SUPORTE_2
+    FOREIGN KEY (FK_USUARIO_id_user)
+    REFERENCES USUARIO (id_user)
+    ON DELETE CASCADE;
+ 
+ALTER TABLE DESTAQUE ADD CONSTRAINT FK_DESTAQUE_2
+    FOREIGN KEY (FK_ARTISTA_id_artista)
+    REFERENCES ARTISTA (id_artista)
+    ON DELETE CASCADE;
+ 
+ALTER TABLE ARTISTA_GENERO ADD CONSTRAINT FK_ARTISTA_GENERO_1
+    FOREIGN KEY (FK_GENERO_id_gen)
+    REFERENCES GENERO (id_gen)
+    ON DELETE RESTRICT;
+ 
+ALTER TABLE ARTISTA_GENERO ADD CONSTRAINT FK_ARTISTA_GENERO_2
+    FOREIGN KEY (FK_ARTISTA_id_artista)
+    REFERENCES ARTISTA (id_artista)
+    ON DELETE SET NULL;
+ 
+ALTER TABLE SEGUIDORES_SEGUINDO ADD CONSTRAINT FK_SEGUIDORES_SEGUINDO_2
+    FOREIGN KEY (FK_ARTISTA_id_artista)
+    REFERENCES ARTISTA (id_artista)
+    ON DELETE SET NULL;
+ 
+ALTER TABLE SEGUIDORES_SEGUINDO ADD CONSTRAINT FK_SEGUIDORES_SEGUINDO_3
+    FOREIGN KEY (FK_USUARIO_id_user)
+    REFERENCES USUARIO (id_user)
+    ON DELETE SET NULL;
+ 
+ALTER TABLE CURTIR_ARTISTA ADD CONSTRAINT FK_CURTIR_ARTISTA_2
+    FOREIGN KEY (FK_USUARIO_id_user)
+    REFERENCES USUARIO (id_user)
+    ON DELETE SET NULL;
+ 
+ALTER TABLE CURTIR_ARTISTA ADD CONSTRAINT FK_CURTIR_ARTISTA_3
+    FOREIGN KEY (FK_ARTISTA_id_artista)
+    REFERENCES ARTISTA (id_artista)
+    ON DELETE SET NULL;
+ 
+ALTER TABLE ARTISTA_REDE ADD CONSTRAINT FK_ARTISTA_REDE_1
+    FOREIGN KEY (FK_ARTISTA_id_artista)
+    REFERENCES ARTISTA (id_artista)
+    ON DELETE SET NULL;
+ 
+ALTER TABLE ARTISTA_REDE ADD CONSTRAINT FK_ARTISTA_REDE_2
+    FOREIGN KEY (FK_REDE_SOCIAL_id_rede_social)
+    REFERENCES REDE_SOCIAL (id_rede_social)
+    ON DELETE SET NULL;
+ 
+ALTER TABLE CURTIR_COMENT_ARTISTA ADD CONSTRAINT FK_CURTIR_COMENT_ARTISTA_2
+    FOREIGN KEY (FK_USUARIO_id_user)
+    REFERENCES USUARIO (id_user)
+    ON DELETE SET NULL;
+ 
+ALTER TABLE CURTIR_COMENT_ARTISTA ADD CONSTRAINT FK_CURTIR_COMENT_ARTISTA_3
+    FOREIGN KEY (FK_COMENTARIO_ARTISTA_id_coment)
+    REFERENCES COMENTARIO_ARTISTA (id_coment)
+    ON DELETE SET NULL;
+ 
+ALTER TABLE CURTIR_COMENT_EVENTO ADD CONSTRAINT FK_CURTIR_COMENT_EVENTO_2
+    FOREIGN KEY (FK_COMENTARIO_EVENTO_id_coment)
+    REFERENCES COMENTARIO_EVENTO (id_coment)
+    ON DELETE SET NULL;
+ 
+ALTER TABLE CURTIR_COMENT_EVENTO ADD CONSTRAINT FK_CURTIR_COMENT_EVENTO_3
+    FOREIGN KEY (FK_USUARIO_id_user)
+    REFERENCES USUARIO (id_user)
+    ON DELETE SET NULL;
         
         (criação de tabelas, alterações, etc..) 
        
