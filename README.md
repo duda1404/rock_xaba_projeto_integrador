@@ -203,7 +203,7 @@ FK_USUARIO_id_user: chave estrangeira relativa ao id do usuário que adicionou o
 
         a) inclusão do esquema lógico do banco de dados
         
-   <img src="arquivos/Lógico_25_06.png">"
+   <img src="arquivos/Lógico_16_09.png">"
         
         b) verificação de correspondencia com o modelo conceitual 
         (não serão aceitos modelos que não estejam em conformidade)
