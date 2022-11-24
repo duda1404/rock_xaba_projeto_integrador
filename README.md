@@ -88,7 +88,7 @@ b) inclusão das Histórias de usuário desenvolvidas pelo grupo<br>
     a) O sistema proposto poderá fornecer quais tipos de relatórios e informações?
     
     O sistema proposto poderá fornecer relatórios e informações com relação ao usuário, seu nome, seu email, sua senha, o id a ele atribuido, e seu tipo 
-    dentro do site (podendo ser comum, artista, administrador e adiministrador_artista). Poderá também fornecer relatórios quanto ao número de artistas,
+    dentro do site (podendo ser comum, artista, administrador). Poderá também fornecer relatórios quanto ao número de artistas,
     seu nome, gênero musical, descrição, playlist e catálogo, e os produtos que nele estão. Pode fornecer relatórios referentes aos produtos comprados, 
     e aos  eventos adicionados ao site
     
@@ -114,9 +114,9 @@ b) inclusão das Histórias de usuário desenvolvidas pelo grupo<br>
     
      Principais entidades do sistema em desenvolvimento: Usuário, Artista e Evento
      
-     Principais fluxos: Evento, Produto, Compra e Artista.
+     Principais fluxos: Evento e Artista
 <br>
-<img src="arquivos/Conceitual_25_06.png"><br>
+<img src="arquivos/Conceitual_Imagem.png"><br>
       
     
 #### 7.1 Descrição dos dados 
