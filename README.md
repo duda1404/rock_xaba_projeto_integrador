@@ -127,6 +127,12 @@ senha_user: campo que armazena a senha do usuário. <br>
 email_user: campo que armazena o email do usuário. <br>
 nome_user: campo que armazena o nome do usuário. <br>
 FK_TIPO_USUARIO_codigo: campo que armazena e determina o tipo de usuário. <br>
+FK_SITUACAO_id_sit: campo que determina a situação do usuário (Ativo, Inativo) <br>
+data_add_user: campo que armazena a data em que o usuário foi cadastrado no site <br>
+chave_confirm: campo que armazena a chave de confirmação do cadastro do usuário <br>
+chave_recupera_senha: campo que armazena a chave de recuperação de senha do usuário <br>
+photo_user: campo que armazena a foto do usuário.
+<br>
 
 TIPO_USUÁRIO: Tabela que armazena os tipos de usuário. <br>
 codigo: campo que armazena o código referente a cada tipo de usuário. <br>
@@ -134,10 +140,12 @@ dsc_tipo: descrição do tipo de usuário. <br>
 
 ARTISTA: Tabela que armazena os dados do artista. <br>
 id_artista: campo que armazena o id do artista. <br>   
-nome_artista: campo que armazena o nome do artista.   <br> 
-dsc_artista: campo que armazena a descrição do artista.   <br> 
-link_play: campo que armazena o link para o Spotify do artista.<br>
-FK_USUARIO_id_user: chave estrangeira referente ao tipo de usuário.<br>
+nome_artista: campo que armazena o nome do artista. <br> 
+dsc_artista: campo que armazena a descrição do artista. <br> 
+link_play: campo que armazena o link para o Spotify do artista. <br>
+dat_add_artista: data em que o artista foi adicionado
+FK_USUARIO_id_user: chave estrangeira referente ao tipo de usuário. <br>
+FK_SITUACAO_id_sit: chave estrangeira referente à situação de usuário <br>
 
 ARTISTA_GENERO: Tabela que relaciona um artista a um gênero.<br>
 FK_GENERO_id_gen: chave estrangeira com o gênero musical.    <br>
@@ -148,22 +156,15 @@ id_gen: campo que armazena o id referente ao gênero.<br>
 dsc_gen: campo que armazena a descrição do gênero.<br>
 
 CATALOGO: Tabela que armazena o catálogo referente a cada artista.<br>
-id_catalog: campo que armazena o id do catálogo.    <br>
-FK_ARTISTA_id_artista: chave estrangeira que armazena o id do artista.<br>
+id_catalog: campo que armazena o id do catálogo. <br>
+link_catalog: campo que armazena o link do catálogo que levará à loja do Artista. <br>
+dat_add_catalog: campo que armazena a data em que o catálogo foi adicionado ao site. <br>
+FK_ARTISTA_id_artista: chave estrangeira que armazena o id do artista. <br>
+FK_SITUACAO_id_sit: campo que armazena a situação do catálogo (Ativo, Inativo). <br>
 
-
-PRODUTO: Tabela que armazena os produtos referentes ao catálogo de cada artista. <br>
-id_produto:    campo que armazena o id do produto.<br>
-nome_produto: campo que armazena o nome do produto.   <br> 
-dsc_produto:    campo que armazena a descrição do produto.<br>
-preco_produto: campo que armazena o preço do produto.    <br>
-FK_CATALOG_id_catalog: chave estrangeira referente ao id do catálogo que o produto pertence. <br>
-
-COMPRA: Tabela que armazena os dados da compra de um usuário. <br>
-FK_PRODUTO_id_produto: chave estrangeira referente ao id do produto que foi comprado. <br>    
-FK_USUARIO_id_user: chave estrangeira referente ao id do usuário que realizou a compra.    <br>
-cod_compra:    campo que armazena o código da compra. <br>
-data_compra: campo que armazena a data em que a compra foi realizada.
+FOTO_CATALOGO: Tabela que armazena as fotos presentes no catálogo. <br>
+photo_catalog: campo que armazena a foto do catálogo (o endereço). <br>
+FK_CATALOGO_id_catalog: chave estrangeira referente ao catálogo. <br>
 
 EVENTO: Tabela que armazena os dados do evento. <br>
 id_evento: campo que armazena o id do evento.  <br>
@@ -173,7 +174,93 @@ local_evento: campo que armazena    o local do evento. <br>
 preco_evento: campo que armazena     o preço do ingresso. <br>
 dat_limite_ingresso: campo que armazena a data final da venda do ingresso. <br>
 dat_inicio_ingresso: campo que armazena a data inicial da venda do ingresso. <br>
+dat_add_evento: campo que armazena a data em que o evento foi adicionado ao site. <br>
 FK_USUARIO_id_user: chave estrangeira relativa ao id do usuário que adicionou o evento. <br>
+FK_SITUACAO_id_sit: chave estrangeira referente à situação do evento no site (Ativo, Inativo). <br>
+
+CURITR_ARTISTA: tabela que armazena as curtidas dos Artistas. <br>
+id_curtida: campo que armazena o id da curtida. <br>
+data_curtida: campo que armazena a data da curtida. <br>
+FK_USUARIO_id_user: chave estrangeira referente ao id do usuário que fez a curtida. <br>
+FK_ARTISTA_id_artista: chave estrangeira referente ao id do Artista que foi curtido. <br>
+
+SEGUIDORES_SEGUINDO: tabela que armazena os seguidores e aqueles que são seguidos. <br>
+id_seg: campo que armazena o id da 'seguida'. <br>
+data_seg: data em que o Artista foi seguido. <br>
+FK_ARTISTA_id_artista: chave estrangeira referente ao id do artista que foi seguido. <br>
+FK_USUARIO_id_user: chave estrangeira do usuário que seguiu o Artista. <br>
+
+REDE_SOCIAL: tabela que armazena às redes sociais linkadas ao site. <br>
+id_rede_social: campo que armazena o id da rede social. <br>
+dsc_rede_social: campo que armazena a descrição da rede social. <br>
+icon_rede_social: campo que armazena o icon da rede social. <br>
+
+ARTISTA_REDE: tabela que faz o intermédio entre o Artista e suas Redes Sociais. <br>
+FK_ARTISTA_id_artista: chave estrangeira referente ao Artista que possui as redes. <br>
+FK_REDE_SOCIAL: chave estrangeira referente à rede social. <br>
+
+CURTIR_COMENT_ARTISTA: tabela que armazena as curtidas dos comentários na página de Artistas. <br>
+id_curtida: campo que armazena o id da curtida. <br>
+data_curtida: campo que armazena a data da curtida. <br>
+FK_USUARIO_id_user: campo que armazena o id do usuário que fez a curtida. <br>
+FK_COMENTARIO_ARTISTA: campo que armazena o id do comentário que foi curtido. <br>
+
+CURTIR_COMENT_EVENTO: tabela que armazena as curtidas dos comentários na página de Eventos. <br>
+id_curtida: campo que armazena o id da curtida. <br>
+data_curtida: campo que armazena a data da curtida. <br>
+FK_USUARIO_id_user: campo que armazena o id do usuário que fez a curtida. <br>
+FK_COMENTARIO_EVENTO: campo que armazena o id do comentário que foi curtido. <br>
+
+DESTAQUE: tabela que armazena os destaques da página de Artista. <br>
+id_destaque: campo que armazena o id do destaque. <br>
+dsc_destaque: campo que armazena o texto do destaque. <br>
+photo_destaque: campo que armazena uma imagem do destaque. <br>
+dat_add_destaque: campo que armazena a data em que o destaque foi adicionado. <br>
+FK_ARTISTA_id_artista: chave estrangeira referente ao Artista em que a página está o destaque. <br>
+
+FOTO_EVENTO: tabela que armazena as fotos ligadas aos Eventos. <br>
+id_photo: campo que armazena o id da foto. <br>
+photo_evento: campo que armazena o endereço da foto. <br>
+FK_EVENTO_id_evento: campo que armzena o id do evento ao qual à foto está ligada. <br>
+
+COMENTARIO_ARTISTA: tabela que armazena os comentários na página de Artista. <br>
+id_coment: campo que armazena o id do comentário. <br>
+dsc_coment: campo que armazena o texto do comentário. <br>
+date_coment: campo que armazena a data do comentário. <br>
+reply_of: campo que armazena o id do comentário a quem está respondendo (se for uma resposta). <br>
+FK_ARTISTA_id_artista: chave estrangeira referente ao Artista que recebeu o comentário. <br>
+FK_USUARIO_id_user: chave estrangeira referente ao id do usuário que fez o comentário. <br>
+FK_TIPO_COMENTARIO_id_tipo: chave estrangeira referente ao id do tipo de comentário. <br>
+
+COMENTARIO_EVENTO: tabela que armazena os comentários na página de Evento. <br>
+id_coment: campo que armazena o id do comentário. <br>
+dsc_coment: campo que armazena o texto do comentário. <br>
+date_coment: campo que armazena a data do comentário. <br>
+reply_of: campo que armazena o id do comentário a quem está respondendo (se for uma resposta). <br>
+FK_EVENTO_id_evento: chave estrangeira referente ao Evento que recebeu o comentário. <br>
+FK_USUARIO_id_user: chave estrangeira referente ao id do usuário que fez o comentário. <br>
+FK_TIPO_COMENTARIO_id_tipo: chave estrangeira referente ao id do tipo de comentário. <br>
+
+TIPO_COMENTARIO: tabela que armazena os tipos de comentário. <br>
+id_tipo_coment: campo que armazena o id do tipo de comentário. <br>
+dsc_tipo_coment: campo que armazena a descrição do tipo de comentário. <br>
+
+SUPORTE: tabela que armazena as mensagens enviadas no Suporte. <br>
+id_msg: campo que armazena o id da mensagem. <br>
+dsc_msg: campo que armazena o texto da mensagem de Suporte. <br>
+data_msg: campo que armazena a data em que a mensagem foi enviada. <br>
+FK_USUARIO_id_user: chave estrangeira referente ao id do usuário que enviou a mensagem. <br>
+
+ARTISTA_GENERO: tabela intermediária entre os Artistas e os Gêneros. <br>
+FK_GENERO_id_gen: chave estrangeira referente ao id do gênero. <br>
+FK_ARTISTA_id_artista: chave estrangeira referente ao id do Artista. <br>
+
+AVALIACAO_EVENTO: tabela que armazena as avaliações dos Eventos. <br>
+id_aval: campo que armazena o id da avaliação. <br>
+qtd_estrelas: campo que armazena a quantidade de estrelas da avaliação. <br>
+date_aval: campo que armazena a data em que a avaliação foi feita. <br>
+FK_EVENTO_id_evento: chave estrangeira referente ao id do Evento que foi avaliado. <br>
+FK_USUARIO_id_user: chave estrangeira referente ao usuário que fez a avaliação. <br>
 
 ### 8	RASTREABILIDADE DOS ARTEFATOS<br>
         a) Historia de usuários vs protótipo (mockup)
