@@ -790,7 +790,7 @@ insert into artista_genero (FK_GENERO_id_gen, FK_ARTISTA_id_artista) values
  
   ### 13.5 Calendário Reverso. <br>
   
-  <img src="arquivos/ calendário reverso atualizado - Página1_page-0001.jpg"><br>
+  <img src="arquivos/calendário reverso atualizado - Página1_page-0001.jpg"><br>
  
  ### 14 Slides e Apresentação em vídeo. <br>
      OBS: Observe as instruções relacionadas a cada uma das atividades abaixo.<br>
