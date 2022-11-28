@@ -788,9 +788,10 @@ insert into artista_genero (FK_GENERO_id_gen, FK_ARTISTA_id_artista) values
  <br>
  <br>
  
-  ### 13.5 Calendário Reverso. <br>
+  ### 13.5 Calendário Reverso e Diagrama de Classes. <br>
   
   <img src="arquivos/calendário reverso atualizado - Página1_page-0001.jpg"><br>
+  <img src="WhatsApp Image 2022-11-24 at 11.45.57 (1).jpeg"><br>
  
  ### 14 Slides e Apresentação em vídeo. <br>
      OBS: Observe as instruções relacionadas a cada uma das atividades abaixo.<br>
