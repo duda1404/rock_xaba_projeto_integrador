@@ -285,6 +285,8 @@ FK_USUARIO_id_user: chave estrangeira referente ao usuário que fez a avaliaçã
         
         (não serão aceitos modelos que não estejam em conformidade)
         c) Backlog (caso solicitado)
+        
+  <img src="arquivos/Backlog - Página1 (1)_page-0001.jpg"><br>
 
 ### 9	MODELO LÓGICO<br>
 
