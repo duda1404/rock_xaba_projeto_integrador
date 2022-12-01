@@ -898,91 +898,91 @@ VALUES
 select * from artista;
 <img src="arquivos/consulta1.png"><br>
         <hr>
-        
+ <br>       
 select * from artista_genero;
  <img src="arquivos/consulta2.png"><br>
         <hr>
-          
+  <br>        
 select * from artista_rede;
  <img src="arquivos/consulta3.png"><br>
         <hr>
-                
+     <br>           
 select * from avaliacao_evento;
  <img src="arquivos/consulta4.png"><br>
         <hr>
-                
+  <br>              
 select * from catalogo;
 <img src="arquivos/consulta5.png"><br>
         <hr>
-                
+      <br>          
 select * from comentario_artista;
  <img src="arquivos/consulta6.png"><br>
         <hr>
-                
+       <br>         
 select * from comentario_evento;
  <img src="arquivos/consulta7.png"><br>
         <hr>
-                
+  <br>              
 select * from curtir_artista;
  <img src="arquivos/consulta8.png"><br>
         <hr>
-                
+       <br>         
 select * from curtir_coment_artista;
  <img src="arquivos/consulta9.png"><br>
         <hr>
-                
+   <br>             
 select * from curtir_coment_evento;
  <img src="arquivos/consulta10.png"><br>
         <hr>
-                
+  <br>              
 select * from destaque;
  <img src="arquivos/consulta11.png"><br>
         <hr>
-                
+  <br>             
 select * from evento;
  <img src="arquivos/consulta12.png"><br>
         <hr>
-                
+  <br>              
 select * from foto_artista;
  <img src="arquivos/consulta13.png"><br>
         <hr>
-                
+   <br>             
 select * from foto_catalogo;
  <img src="arquivos/consulta14.png"><br>
         <hr>
-                
+   <br>             
 select * from foto_evento;
  <img src="arquivos/consulta15.png"><br>
         <hr>
-                
+   <br>             
 select * from genero;
  <img src="arquivos/consulta16.png"><br>
         <hr>
-                
+    <br>            
 select * from rede_social;
  <img src="arquivos/consulta17.png"><br>
         <hr>
-                
+   <br>             
 select * from seguidores_seguindo;
  <img src="arquivos/consulta18.png"><br>
         <hr>
-                
+   <br>             
 select * from situacao;
  <img src="arquivos/consulta19.png"><br>
         <hr>
-                
+  <br>             
 select * from suporte;
  <img src="arquivos/consulta20.png"><br>
         <hr>
-                 
+  <br>               
 select * from tipo_comentario;
  <img src="arquivos/consulta21.png"><br>
         <hr>
-                        
+  <br>                      
 select * from tipo_usuario;
  <img src="arquivos/consulta22.png"><br>
         <hr>
-                        
+    <br>                    
 select * from usuario;
  <img src="arquivos/consulta23.png"><br>
         <hr>
