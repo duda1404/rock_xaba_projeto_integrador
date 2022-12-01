@@ -93,11 +93,11 @@ b) inclusão das Histórias de usuário desenvolvidas pelo grupo<br>
     e aos  eventos adicionados ao site
     
     b) Crie uma lista com os 5 principais relatórios que poderão ser obtidos por meio do sistema proposto!
-   * Relatório com a quantidade de usuários cadastrados no site, incluindo as seguintes informações: id do usuário, nome, email, senha e tipo
-   * Relatório com a quantidade de artistas cadastrados no site, incluindo as seguintes informações: id do artista, nome, descrição, gênero musical e link de    sua playlist de músicas e id do usuário ligado a ele
-   * Relatório do número de catálogos de artistas cadastrados no site, incluindo as seguintes informações: id do catálogo e id do artista ao qual ele            pertence
-   * Relatório do número de produtos presentes em cada catálogo e daqueles que foram comprados, incluindo as seguintes informações: id do produto, nome do      produto, descrição do produto, preço do produto, código da compra e data da compra
-   * Relatório dos eventos adicionados ao site, incluindo as seguintes informações: id do evento, data do evento, descrição do evento, local do evento,          descrição do evento, data do início da venda dos ingressos e data limite da venda de ingressos
+   * Relatório com os usuários cadastrados no site, incluindo: id do usuário, nome, email, senha e tipo;
+   * Relatório com os artistas cadastrados no site, incluindo: id do artista, nome, descrição, gênero musical e link de sua playlist de músicas e id do usuário ligado a ele;
+   * Relatório com os catálogos de artistas cadastrados no site, incluindo: id do catálogo e id do artista ao qual ele pertence;
+   * Relatório com os generos existentes no site;
+   * Relatório dos eventos adicionados ao site, incluindos: id do evento, data do evento, descrição do evento, local do evento, descrição do evento, data do início da venda dos ingressos e data limite da venda de ingressos;
  
 
 ### 6. TABELA DE DADOS DO SISTEMA:
@@ -898,6 +898,27 @@ VALUES
 #### 12.2 PRINCIPAIS CONSULTAS DO SISTEMA 
  Inserir as principais consultas (relativas aos 5 principais relatórios) definidas previamente no iten 3.1 deste template.
  <br>
+ select * from usuario;
+ <img src="arquivos/relatorio1.png"><br>
+        <hr>
+
+select * from artista;
+<img src="arquivos/relatorio2.png"><br>
+        <hr>
+
+select * from catalogo;
+<img src="arquivos/relatorio3.png"><br>
+        <hr>
+
+select * from genero;
+<img src="arquivosrelatorio4.png"><br>
+        <hr>
+
+select * from evento;
+<img src="arquivos/relatorio5.png"><br>
+        <hr>
+        
+  <br>
   a) Você deve apresentar as consultas em formato SQL para cad um dos relatórios.
  <br>
   b) Além da consulta deve ser apresentada uma imagem com o resultado obtido para cada consulta.<br>
