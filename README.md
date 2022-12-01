@@ -646,115 +646,244 @@ ALTER TABLE CURTIR_COMENT_EVENTO ADD CONSTRAINT FK_CURTIR_COMENT_EVENTO_3
         
 USE rockxaba;
 
-DROP TABLE IF EXISTS `artista_genero`;
+DROP TABLE IF EXISTS seguidores_seguindo;
 
-DROP TABLE IF EXISTS `compra`;
+DROP TABLE IF EXISTS suporte;
 
-DROP TABLE IF EXISTS `produto`;
+DROP TABLE IF EXISTS foto_catalogo;
 
-DROP TABLE IF EXISTS `catalogo`;
+DROP TABLE IF EXISTS foto_artista;
 
-DROP TABLE IF EXISTS `artista`;
+DROP TABLE IF EXISTS catalogo;
 
-DROP TABLE IF EXISTS `evento`;
+DROP TABLE IF EXISTS destaque;
 
-DROP TABLE IF EXISTS `genero`;
+DROP TABLE IF EXISTS curtir_coment_artista;
 
-DROP TABLE IF EXISTS `usuario`;
+DROP TABLE IF EXISTS curtir_artista;
 
-DROP TABLE IF EXISTS `tipo_usuario`;
+DROP TABLE IF EXISTS comentario_artista;
 
-CREATE TABLE USUARIO ( id_user integer PRIMARY KEY, senha_user varchar(100), email_user varchar(100), nome_user varchar(100), FK_TIPO_USUARIO_codigo integer );
+DROP TABLE IF EXISTS artista_rede;
 
-CREATE TABLE ARTISTA ( id_artista integer PRIMARY KEY, nome_artista varchar(100), dsc_artista varchar(100), link_play varchar(100), FK_USUARIO_id_user integer );
+DROP TABLE IF EXISTS rede_social;
 
-CREATE TABLE CATALOGO ( id_catalog integer PRIMARY KEY, FK_ARTISTA_id_artista integer );
+DROP TABLE IF EXISTS foto_evento;
 
-CREATE TABLE PRODUTO ( id_produto integer PRIMARY KEY, nome_produto varchar(100), dsc_produto varchar(100), preco_produto varchar(100), FK_CATALOGO_id_catalog integer );
+DROP TABLE IF EXISTS curtir_coment_evento;
 
-CREATE TABLE EVENTO ( id_evento integer PRIMARY KEY, dat_evento date, dsc_evento varchar(1000), local_evento varchar(100), preco_evento varchar(100), dat_limite_ingresso date, dat_inicio_ingresso date, FK_USUARIO_id_user integer );
+DROP TABLE IF EXISTS comentario_evento;
 
-CREATE TABLE TIPO_USUARIO ( codigo integer PRIMARY KEY, dsc_tipo varchar(1000) );
+DROP TABLE IF EXISTS avaliacao_evento;
 
-CREATE TABLE GENERO ( id_gen integer PRIMARY KEY, dsc_genero varchar(1000) );
+DROP TABLE IF EXISTS evento;
 
-CREATE TABLE COMPRA ( FK_PRODUTO_id_produto integer, FK_USUARIO_id_user integer, cod_compra integer PRIMARY KEY, data_compra varchar(100) );
+DROP TABLE IF EXISTS artista_genero;
+
+DROP TABLE IF EXISTS genero;
+
+DROP TABLE IF EXISTS artista;
+
+DROP TABLE IF EXISTS usuario;
+
+DROP TABLE IF EXISTS situacao;
+
+DROP TABLE IF EXISTS tipo_comentario;
+
+DROP TABLE IF EXISTS tipo_usuario;
+
+CREATE TABLE USUARIO ( id_user integer PRIMARY KEY, email_user varchar(100), nome_user varchar(100), chave_confirm varchar(100), chave_recupera_senha varchar(100), photo_user varchar(100), dsc_user varchar(100), senha_user varchar(100), data_add_user timestamp, FK_TIPO_USUARIO_codigo integer, FK_SITUACAO_id_sit integer );
+
+CREATE TABLE ARTISTA ( id_artista integer PRIMARY KEY, nome_artista varchar(100), link_play varchar(100), dsc_artista varchar(100), dat_add_artista timestamp, FK_USUARIO_id_user integer, FK_SITUACAO_id_sit integer );
+
+CREATE TABLE CATALOGO ( id_catalog integer PRIMARY KEY, link_catalog varchar(100), dat_add_catalog timestamp, FK_ARTISTA_id_artista integer, FK_SITUACAO_id_sit integer );
+
+CREATE TABLE EVENTO ( id_evento integer PRIMARY KEY, dat_evento timestamp, dsc_evento varchar(1000), local_evento varchar(100), preco_evento varchar(100), dat_limite_ingresso timestamp, dat_inicio_ingresso timestamp, dat_add_evento timestamp, FK_USUARIO_id_user integer, FK_SITUACAO_id_sit integer );
+
+CREATE TABLE TIPO_USUARIO ( dsc_tipo varchar(100), codigo integer PRIMARY KEY );
+
+CREATE TABLE GENERO ( dsc_genero varchar(100), id_gen integer PRIMARY KEY );
+
+CREATE TABLE COMENTARIO_EVENTO ( id_coment integer PRIMARY KEY, dsc_coment varchar(100), date_coment timestamp, reply_of integer, FK_EVENTO_id_evento integer, FK_USUARIO_id_user integer, FK_TIPO_COMENTARIO_id_tipo_coment integer );
+
+CREATE TABLE AVALIACAO_EVENTO ( id_aval integer PRIMARY KEY, qtd_estrelas integer, date_aval timestamp, FK_EVENTO_id_evento integer, FK_USUARIO_id_user integer );
+
+CREATE TABLE FOTO_EVENTO ( id_photo integer PRIMARY KEY, photo_evento varchar(100), FK_EVENTO_id_evento integer );
+
+CREATE TABLE FOTO_ARTISTA ( id_photo integer PRIMARY KEY, photo_artista varchar(100), FK_ARTISTA_id_artista integer );
+
+CREATE TABLE FOTO_CATALOGO ( id_photo integer PRIMARY KEY, photo_catalogo varchar(100), FK_CATALOGO_id_catalog integer );
+
+CREATE TABLE COMENTARIO_ARTISTA ( dsc_coment varchar(100), date_coment timestamp, id_coment integer PRIMARY KEY, reply_of integer, FK_ARTISTA_id_artista integer, FK_USUARIO_id_user integer, FK_TIPO_COMENTARIO_id_tipo_coment integer );
+
+CREATE TABLE TIPO_COMENTARIO ( id_tipo_coment integer PRIMARY KEY, dsc_tipo_coment varchar(100) );
+
+CREATE TABLE SUPORTE ( id_msg integer PRIMARY KEY, dsc_msg varchar(100), data_msg timestamp, FK_USUARIO_id_user integer );
+
+CREATE TABLE REDE_SOCIAL ( id_rede_social integer PRIMARY KEY, dsc_rede_social varchar(100), icon_rede_social varchar(100) );
+
+CREATE TABLE DESTAQUE ( id_destaque integer PRIMARY KEY, dsc_destaque varchar(100), photo_destaque varchar(100), dat_add_destaque timestamp, FK_ARTISTA_id_artista integer );
+
+CREATE TABLE SITUACAO ( id_sit integer PRIMARY KEY, dsc_sit varchar(100) );
 
 CREATE TABLE ARTISTA_GENERO ( FK_GENERO_id_gen integer, FK_ARTISTA_id_artista integer );
 
-insert into tipo_usuario(codigo, dsc_tipo) values  ('1',	'Comum'),
-('2',	'Artista'),
-('3',	'Administrador'),
-('4',	'Administrador_Artista');
+CREATE TABLE SEGUIDORES_SEGUINDO ( FK_ARTISTA_id_artista integer, FK_USUARIO_id_user integer, id_seg integer PRIMARY KEY, data_seg timestamp );
 
-insert into usuario (id_user, senha_user, email_user, nome_user, FK_TIPO_USUARIO_codigo) values 
-('1836',' VVD41BQO8RP', 'alladin@gmail.com', 'Aladdin Berg', '2'),
-('2147',' OBX41KGM0FW', 	'orla@gmail.com,' , 'Orla Dutra','2'),
-('2979',' CLM98NTK6XW', 	'derek@gmail.com', 'Derek Cabral','2'),
-('6588',' PZQ51TZC8WK', 	'scarlett@gmail.com', 'Scarlett Braga','1'),
-('6851',' WOD36JKB8ER', 	'branden@gmail.com', 'Branden Bryan','3'),
-('7349', 'KNS43UPJ8NF',	'lucius@gmail.com', 'Lucius Farrell','2'),
-('7885', 'UKO93LWT5WX', 'germane@gmail.com', 'Germane Bento','2'),
-('8139', 'ONR04LAE4RQ',	 'daphne@gmail.com', 'Daphne Clayton','4'),
-('8685	', 'XGN79WCL6FY',	'sigourney@gmail.com', 'Sigourney Moreno','4'),
-('9264',' TEM15SBR7EJ',		'tatum@gmail.com', 'Tatum Barros','2');
+CREATE TABLE CURTIR_ARTISTA ( FK_USUARIO_id_user integer, FK_ARTISTA_id_artista integer, data_curtida timestamp, id_curtida integer PRIMARY KEY );
 
-insert into genero (id_gen, dsc_genero) values 
-('1',	'Pop'),
-('2',	'Blues'),
-('3',	'Indie'),
-('4',	'Forrô'),
-('5',	'Folk'),
-('6',	'Funk'),
-('7',	'Eletrônica'),
-('8',	'Punk');
+CREATE TABLE ARTISTA_REDE ( FK_ARTISTA_id_artista integer, FK_REDE_SOCIAL_id_rede_social integer );
 
-insert into artista (id_artista, nome_artista, dsc_artista, link_play, FK_USUARIO_id_user) values
-('2937',	'Jemima',	'Meu nome é Jemima, eu toco Blues',		'http://spotify.com',	 '9264'),
-('2979',	'Griffith',	'Meu nome é Griffith, eu toco Indie',		'http://spotify.com',		 '2147'),
-('3041',	'Zephr',	'Meu nome é Zephr, eu toco Forrô',		'http://spotify.com',		'7885'),
-('3385',	'Porter',	'Meu nome é Porter, eu toco Folk',		'http://spotify.com',		 '7349'),
-('4762',	',Kasper',	'Meu nome é Kasper, eu toco Funk',		'http://spotify.com',		 '8685'),
-('5782',	'Lareina',	'Meu nome é Lareina, eu toco Eletrônica',		'http://spotify.com',		' 8139'),
-('6589',	'Miranda',	'Meu nome é Miranda, eu toco Punk',		'http://spotify.com',		 '2979'),
-('7885',	'Galvin',	'Meu nome é Galvin, eu toco Funk',		'http://spotify.com',		'1836');
+CREATE TABLE CURTIR_COMENT_ARTISTA ( FK_USUARIO_id_user integer, FK_COMENTARIO_ARTISTA_id_coment integer, id_curtida integer PRIMARY KEY, data_curtida timestamp );
 
-insert into catalogo (id_catalog, fk_artista_id_artista) values 
-('1262',	'2979'),
-('6349',	'3041'),
-('9550',	'3385'),
-('5426',	'4762'),
-('9399',	'5782'),
-('6320',	'6589');
+CREATE TABLE CURTIR_COMENT_EVENTO ( FK_COMENTARIO_EVENTO_id_coment integer, FK_USUARIO_id_user integer, id_curtida integer PRIMARY KEY, data_curtida timestamp );
 
-insert into produto (id_produto, nome_produto, dsc_produto, preco_produto, FK_CATALOGo_id_catalog) values
-('4321',	'Caneca Indie',	'Caneca Indie',	'50',	'1262'),
-('2022',	'Caneca Forrô',	'Caneca Forrô',	'100',	'6349'),
-('3455',	'Camisa Folk',	'Camisa Folk',	'40',	'9550'),
-('1789',	'Caneca Funk',	'Caneca Funk',	'120',	'5426'),
-('9080',	'Camisa Eletrônica',	'Camisa Eletrônica',	'150',	'9399'),
-('1000',	'Caneca Punk',	'Caneca Punk',	'50',	'6320');
+insert into tipo_usuario(codigo, dsc_tipo) values ('1', 'Comum'), ('2', 'Artista'), ('3', 'Administrador'), ('4', 'Administrador_Artista');
 
-insert into compra (FK_PRODUTO_id_produto, FK_USUARIO_id_user, cod_compra, data_compra) values
-('9080', '2147',		'9800',	'2022/08/09'),
-('1000', '7885	',	'4700',	'2022/05/06'),
-('4321', '7349',		'1234',	'2022/09/06'),
-('3455', '8685',	'2140',	'2022/12/06');
+INSERT INTO `tipo_comentario` (`id_tipo_coment`,`dsc_tipo_coment`)
+VALUES
+  (1,"Comentário"),
+  (2,"Resposta");
 
-insert into evento (id_evento, dat_evento, dsc_evento, local_evento, preco_evento, dat_limite_ingresso, dat_inicio_ingresso, FK_USUARIO_id_user) values
-('2040',	'2022-07-08',	'Casa de Show Rogers',	'Casa de Show Rogers',	'240',	'2022-07-02',	'2022-06-04',	'6851'),
-('8000',	'2022-04-12',	'Casa de Show Nickels',	'Casa de Show Nickels',	'580',	'2022-04-10',	'2022-04-02',	'8139'),
-('4080',	'2022-08-24',	'Casa de Show Tibre',	'Casa de Show Tibre',	'180',	'2022-08-15',	'2022-08-02',	'8685');
+insert into situacao(id_sit, dsc_sit) values ('1', 'Inativo'), ('2', 'Ativo');
 
-insert into artista_genero (FK_GENERO_id_gen, FK_ARTISTA_id_artista) values 
-('2',	'2937'),
-('3',	'2979'),
-('4',	'3041'),
-('5',	'3385'),
-('6',	'4762'),
-('7',	'5782'),
-('8',	'6589'),
-('6',	'7885');
+
+INSERT INTO  usuario (`id_user`,`email_user`,`nome_user`,`chave_confirm`,`chave_recupera_senha`,`photo_user`,`dsc_user`,`senha_user`,`data_add_user`,`FK_TIPO_USUARIO_codigo`,`FK_SITUACAO_id_sit`)
+VALUES
+  (5309,"julianochoa@icloud.net","Julian Ochoa","WIW30DFQ6MR","KVW17JCE1BM","PGE37WZM8BH","tamo ai","EEL37GCO1BI","2022-01-14 18:16:43",1,2), 
+  (1551,"raelogan@protonmail.edu","Rae Logan","XQA43VNU5CX","IKW79GRC7XY","KGW30NYW8UY","aq e roque","YSH83CHU5JY","2022-02-11 00:19:22",1,1),
+  (6291,"victorle@google.edu","Victor Le","PSB50TVB5AE","FLW43MKH9GH","WIB26ESK0WH","bitous e minha banda favorita","ZFE05YVP7PN","2022-04-28 01:11:45",2,2),
+  (5180,"rubybrock1516@icloud.net","Ruby Brock","ULQ18EUC0RD","PRQ31PUQ3QO","VCB95UYR1IU","ulala","ITP74EUI4NN","2022-06-01 21:06:21",2,2),
+  (3331,"irmacash2621@google.net","Irma Cash","UMV58HYI3JU","CUF30BXM3JE","IWR24LTS6TP","sem zap","OET22HFU3WO","2022-05-12 10:34:49",2,2),
+  (2462,"linusmoran6201@google.ca","Linus Moran","TOT71IQP2FU","BEE85BDD1TW","BEY81XYC2XQ","hm","LBU93OUD3IN","2022-09-01 11:43:03",2,1);
+
+INSERT INTO `artista` (`id_artista`,`nome_artista`,`dsc_artista`,`dat_add_artista`,`FK_USUARIO_id_user`,`FK_SITUACAO_id_sit`)
+VALUES
+  (3948,"Os Silas","tocamo blues","2022-05-08 15:49:42",1551,2), 
+  (2978,"Mortiz","tocamo indie","2022-04-18 10:07:28",5180,2),
+  (2125,"Josephine Knight","canto pop","2022-02-06 14:51:55",3331,1);
+
+insert into genero (id_gen, dsc_genero) values ('1', 'Pop'), ('2', 'Blues'), ('3', 'Indie'), ('4', 'Forrô'), ('5', 'Folk'), ('6', 'Funk'), ('7', 'Eletrônica'), ('8', 'Punk');
+
+insert into artista_genero (FK_GENERO_id_gen, FK_ARTISTA_id_artista) values ('2', '3948'), ('3', '2978'), ('1', '2125');
+
+INSERT INTO `evento` (`id_evento`,`dat_evento`,`dsc_evento`,`local_evento`,`preco_evento`,`dat_limite_ingresso`,`dat_inicio_ingresso`,`dat_add_evento`,`FK_USUARIO_id_user`,`FK_SITUACAO_id_sit`)
+VALUES
+  (3577,"2023-02-04 13:36:29","Pellentesque Sed Corp.","Itabuna","$0.68","2023-03-16 09:47:32","2023-02-10 13:59:49","2022-12-19 17:31:06",5309,1),
+  (4136,"2023-02-12 08:02:06","Show Amet Orci Limited","Ponta Grossa","$14.10","2023-10-25 02:10:26","2023-04-04 23:54:55","2023-10-04 01:52:08",6291,2),
+  (7632,"2022-12-18 05:25:39","Festival Feugiat Placerat Limited","Codó","$21.00","2023-04-12 21:18:46","2023-11-15 05:23:32","2023-04-22 17:08:58",2462,2),
+  (7809,"2023-04-13 20:49:52","Encontro Orci Ut Semper LLP","Caucaia","$17.16","2023-08-21 08:11:49","2023-03-28 01:57:00","2023-01-11 03:09:54",1551,2),
+  (7802,"2023-02-27 14:10:59","Karaoke Odio Semper PC","Vitória da Conquista","$35.08","2023-04-27 21:09:53","2023-04-07 16:44:05","2023-06-07 07:21:44",5180,2);
+
+INSERT INTO `avaliacao_evento` (`id_aval`,`qtd_estrelas`,`date_aval`,`FK_EVENTO_id_evento`,`FK_USUARIO_id_user`)
+VALUES
+  (8378,3,"2023-05-16 20:02:22",3577,1551),
+  (5943,1,"2022-01-24 20:01:04",4136,2462),
+  (6404,4,"2022-03-28 21:43:15",7632,3331),
+  (2580,3,"2022-09-28 06:16:19",7802,5180),
+  (3048,5,"2022-04-02 13:09:11",7809,5309);
+
+INSERT INTO `comentario_evento` (`id_coment`,`dsc_coment`,`date_coment`,`reply_of`,`FK_EVENTO_id_evento`,`FK_USUARIO_id_user`,`FK_TIPO_COMENTARIO_id_tipo_coment`)
+VALUES
+  (4947,"mt bom","2022-03-05 01:58:59",null,3577,5309,1),
+  (4666,"adorei","2023-04-27 02:22:57",null,4136,1551,1),
+  (8583,"massa","2022-12-01 23:05:13",null,7632,6291,1),
+  (8077,"só achei meio curto","2022-08-22 13:19:15",null,7809,5180,1),
+  (3285,"ótimas bandas","2022-12-31 14:12:38",4947,7802,3331,2); 
+
+INSERT INTO `curtir_coment_evento` (`FK_COMENTARIO_EVENTO_id_coment`,`FK_USUARIO_id_user`,`id_curtida`,`data_curtida`)  
+VALUES
+  (4947,1551,4488,"2023-10-05 12:50:24"),
+  (4666,6291,4653,"2021-12-07 09:52:33"),
+  (8583,5180,8083,"2022-09-14 19:27:29"),
+  (8077,1551,9313,"2022-04-11 13:44:47");
+
+INSERT INTO `foto_evento` (`id_photo`,`photo_evento`,`FK_EVENTO_id_evento`)
+VALUES
+  (7854,"HEJ26WPB3ZZ",3577),
+  (1767,"SPD91APE7TL",4136),
+  (8754,"QDT25VXE4PP",7632),
+  (3279,"TPO26NRW6UX",7809),
+  (5718,"CQV45NFS2KN",7802);
+
+INSERT INTO `rede_social` (`id_rede_social`,`dsc_rede_social`,`icon_rede_social`)
+VALUES
+  (1,"Facebook","YYB38TUL2NR"),
+  (2,"Instagram","TFL26CNR3MC"),
+  (3,"Twitterr","KAJ52OQG7SQ"),
+  (4,"WhatsApp","YLR58QTT2HH");
+
+INSERT INTO `artista_rede` (`FK_ARTISTA_id_artista`,`FK_REDE_SOCIAL_id_rede_social`) 
+VALUES
+  (3948,1),
+  (2978,2),
+  (2125,3);
+
+INSERT INTO `comentario_artista` (`dsc_coment`,`date_coment`,`id_coment`,`reply_of`,`FK_ARTISTA_id_artista`,`FK_USUARIO_id_user`,`FK_TIPO_COMENTARIO_id_tipo_coment`)
+VALUES
+  ("curto mt seu trampo","2023-04-22 18:25:38",3563,null,2125,5309,1),
+  ("melhor album que ja ouvi","2023-09-25 11:38:06",8316,null,3948,1551,1),
+  ("mt presença de palco","2022-08-21 00:02:45",4126,null,2978,6291,1),
+  ("se venderam","2022-12-26 11:41:31",7654,null,2125,5180,1),
+  ("batera animal","2022-10-17 21:44:13",5620,null,2978,3331,1);
+
+INSERT INTO `curtir_artista` ( `FK_USUARIO_id_user` , `FK_ARTISTA_id_artista` , `data_curtida` , `id_curtida` )
+VALUES ( 5309, 3948, "2023-04-28 03:21:10", 9788 ) , 
+( 1551, 2978, "2023-01-10 18:35:53", 2846 ) , 
+( 6291, 2125, "2022-11-23 19:51:15", 2027 ) , 
+( 5180, 2125, "2023-01-31 08:09:33", 5643 );
+   
+
+
+INSERT INTO `curtir_coment_artista` (`FK_USUARIO_id_user`,`FK_COMENTARIO_ARTISTA_id_coment`,`id_curtida`,`data_curtida`)
+VALUES
+  (5309,3563,8495,"2023-06-25 22:55:45"),
+  (1551,8316,5916,"2022-02-18 09:35:17"),
+  (6291,4126,4329,"2022-03-07 00:13:44"),
+  (5180,7654,2637,"2023-10-22 22:52:15"),
+  (3331,5620,5660,"2023-02-25 07:53:21");
+
+
+
+INSERT INTO `destaque` (`id_destaque`,`dsc_destaque`,`photo_destaque`,`dat_add_destaque`,`FK_ARTISTA_id_artista`)
+VALUES
+  (6422,"Nova música!","WIP86JJQ2YT","2022-03-19 02:10:09",2978),
+  (4326,"Fizemos uma participação especial em um filme!","SIQ43SPV4MM","2023-10-13 06:49:53",3948),
+  (8225,"Teaser do novo álbum","OSP88KPF3MG","2023-09-14 18:20:39",2125);
+
+INSERT INTO `catalogo` (`id_catalog`,`link_catalog`,`dat_add_catalog`,`FK_ARTISTA_id_artista`,`FK_SITUACAO_id_sit`)
+VALUES
+  (8162,"https://youtube.com","2023-01-11 04:27:21",2978,"2"),
+  (8809,"https://twitter.com","2021-12-30 09:27:33",3948,"1"),
+  (3010,"https://instagram.com","2023-07-25 11:58:16",2978,"2"),
+  (7343,"http://ebay.com","2022-04-26 13:58:16",2125,"2");
+
+INSERT INTO `foto_artista` (`id_photo`,`photo_artista`,`FK_ARTISTA_id_artista`)
+VALUES
+  (8956,"QUG44XHU7TY",3948),
+  (2626,"REZ41WOB2KR",2978),
+  (9729,"XRS16ZGF1QH",2125);
+
+INSERT INTO `foto_catalogo` (`id_photo`,`photo_catalogo`,`FK_CATALOGO_id_catalog`)
+VALUES
+  (8257,"QUG44XHU7TY",8162),
+  (1906,"REZ41WOB2KR",8809),
+  (7365,"XRS16ZGF1QH",3010);
+
+INSERT INTO `suporte` (`id_msg`,`dsc_msg`,`data_msg`,`FK_USUARIO_id_user`)
+VALUES
+  (5202,"Boa noite! Não estou conseguindo comentar na pág do Mortiz","2023-08-08 11:34:49",5309),
+  (2221,"A foto do meu perfil não tá alterando","2022-11-29 23:14:50",6291);
+
+INSERT INTO `seguidores_seguindo` (`FK_ARTISTA_id_artista`,`FK_USUARIO_id_user`,`id_seg`,`data_seg`)
+VALUES
+  (3948,5309,1543,"2023-02-25 17:50:12"),
+  (2978,6291,9505,"2022-11-03 19:49:29"),
+  (2125,5180,6522,"2023-02-16 22:42:07"),
+  (3948,3331,5211,"2022-06-30 20:34:52");
+     
+
+
 
         
         b) Criar um novo banco de dados para testar a restauracao 
