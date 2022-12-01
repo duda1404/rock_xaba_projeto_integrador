@@ -1042,7 +1042,11 @@ select * from evento;
  ### 14 Slides e Apresentação em vídeo. <br>
      OBS: Observe as instruções relacionadas a cada uma das atividades abaixo.<br>
  #### 14.1 Slides; <br>
+ 
  #### 14.2 Apresentação em vídeo <br>
+ <video src="arquivos/pecha.mp4"></video>
+ <br>
+ 
  #### 14.3 ANTEPROJETO VERSÃO FINAL
  <br>
  <br>   
