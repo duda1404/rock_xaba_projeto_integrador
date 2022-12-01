@@ -1044,7 +1044,8 @@ select * from evento;
  #### 14.1 Slides; <br>
  
  #### 14.2 Apresentação em vídeo <br>
- <video src="arquivos/pecha.mp4"></video>
+ 
+ <a href="arquivos/pecha.mp4"></a>
  <br>
  
  #### 14.3 ANTEPROJETO VERSÃO FINAL
